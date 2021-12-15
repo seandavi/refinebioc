@@ -7,12 +7,13 @@
 rb_organisms(client = RefineBio::RefineBio())
 }
 \value{
-a `data.frame` with four columns:
-
-- name
-- taxonomy_id
-- has_compendia
-- has_quantfile_compendia
+a \code{data.frame} with four columns:
+\itemize{
+\item name
+\item taxonomy_id
+\item has_compendia
+\item has_quantfile_compendia
+}
 }
 \description{
 List all available organisms from refine.bio

@@ -8,13 +8,13 @@ RefineBio(url = .refinebio_url, ...)
 }
 \arguments{
 \item{url}{character(1) the url of the refine bio API root, default
-`.refinebio_url`}
+\code{.refinebio_url}}
 
-\item{...}{passed directly to [rapiclient::get_api()]}
+\item{...}{passed directly to \code{\link[rapiclient:get_api]{rapiclient::get_api()}}}
 }
 \description{
 This function is an accessor for the
-[refine.bio API](https://api.refine.bio).
+\href{https://api.refine.bio}{refine.bio API}.
 }
 \examples{
 
@@ -27,6 +27,6 @@ ops = rapiclient::operations(client)
 
 }
 \seealso{
-[rapiclient::get_api()]
+\code{\link[rapiclient:get_api]{rapiclient::get_api()}}
 }
 \concept{low-level-api}

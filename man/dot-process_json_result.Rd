@@ -7,9 +7,9 @@
 .process_json_result(result, encoding = "UTF-8", ...)
 }
 \arguments{
-\item{result}{[httr::response] object with body assumed to be json}
+\item{result}{\link[httr:response]{httr::response} object with body assumed to be json}
 
-\item{encoding}{character(1) the encoding passed to [httr::content()]}
+\item{encoding}{character(1) the encoding passed to \code{\link[httr:content]{httr::content()}}}
 }
 \description{
 process the httr json response

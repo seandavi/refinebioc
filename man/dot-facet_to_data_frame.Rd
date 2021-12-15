@@ -12,9 +12,11 @@ for each element representing the count of such facet in the
 search result}
 }
 \value{
-`data.frame` with columns
-  - category
-  - count
+\code{data.frame} with columns
+\itemize{
+\item category
+\item count
+}
 }
 \description{
 Turn facet results into data.frame
