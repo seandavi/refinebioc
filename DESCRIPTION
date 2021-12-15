@@ -1,0 +1,20 @@
+Package: RefineBio
+Type: Package
+Title: The bridge between refine.bio and Bioconductor
+Version: 0.1.0
+Authors@R: 
+  c(person(given = "Alex",
+           family = "Ho",
+           role = c("aut", "cre"),
+           email = "alexander.2.ho@cuanschutz.edu"),
+    person(given = "Sean",
+           family = "Davis",
+           role = "aut",
+           email = "seandavi@gmail.com",
+           comment = c(ORCID = "0000-0002-8991-6458")))
+Description: More about what it does (maybe more than one line)
+    Use four spaces when indenting paragraphs within the Description.
+License: MIT
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.1.2
