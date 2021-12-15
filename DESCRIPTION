@@ -14,6 +14,7 @@ Authors@R:
            comment = c(ORCID = "0000-0002-8991-6458")))
 Description: More about what it does (maybe more than one line)
     Use four spaces when indenting paragraphs within the Description.
+Imports: httr, jsonlite
 License: MIT
 Encoding: UTF-8
 LazyData: true

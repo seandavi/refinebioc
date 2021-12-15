@@ -2,4 +2,5 @@
 
 export(RefineBio)
 export(rb_organisms)
+export(rb_platforms)
 export(rb_search)
