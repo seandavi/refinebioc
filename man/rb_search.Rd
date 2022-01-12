@@ -51,7 +51,7 @@ Perform a search against refine.bio api
 
 client = RefineBio::RefineBio()
 
-sres = rb_search(client)
+sres = rb_search(client, search="medulloblastoma")
 sres$count
 head(sres$results,4)
 lapply(sres$facets,head)
