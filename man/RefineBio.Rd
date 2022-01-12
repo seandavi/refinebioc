@@ -21,7 +21,7 @@ This function is an accessor for the
 client = RefineBio()
 
 # operations
-ops = rapiclient::operations(client)
+ops = rapiclient::get_operations(client)
 
 
 
