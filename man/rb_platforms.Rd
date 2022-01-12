@@ -7,7 +7,7 @@
 rb_platforms(client = RefineBio::RefineBio())
 }
 \value{
-a 2-column `data.frame`
+a 2-column \code{data.frame}
 }
 \description{
 List all available platforms from refine.bio

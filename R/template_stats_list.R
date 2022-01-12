@@ -1,0 +1,20 @@
+#' Statistics about the health of the system.
+#' @param range string Specify a range from which to calculate the possible options 
+
+
+#' @family stats
+
+
+rb_stats_list <- function(
+    range = NULL
+)
+
+{
+    args = as.list(environment())
+    client = rb_get_client()
+    res = .process_json_result(
+        do.call(rapiclient::get_operations(client)$stats_list,args)
+        )
+    res$facets = lapply(res$facets,.facet_to_data_frame)
+    res
+}
