@@ -60,3 +60,19 @@ names(ops)
 print(ops$qn_targets_read)
 ```
 
+# Roadmap
+
+- [x] Basic API endpoints
+  - [x] Automated mapping to R objects
+  - [ ] s3 classes and methods for R response objects (subclass of list, basically)
+- [x] Low-level [rapiclient-based](https://github.com/bergant/rapiclient) client
+- [x] R documentation templated from openapi docs
+- [x] Response handling for list and data.frame response
+- [ ] Token handling to allow downloads
+- [ ] File download capability
+- [ ] Metadata with file downloads
+- [ ] Import of data into R/Biocondutor objects
+- [ ] Vignettes
+  - [ ] R-based API
+  - [ ] rapiclient-based API
+  - [ ] common workflows
