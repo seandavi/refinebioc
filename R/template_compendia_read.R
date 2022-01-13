@@ -1,10 +1,7 @@
 #' Get a specific Compendium Result
 #' @param id integer A unique integer value identifying this compendium result. (required)
-
-
 #' @family compendia
-
-
+#' @export
 rb_compendia_read <- function(
     id
 )

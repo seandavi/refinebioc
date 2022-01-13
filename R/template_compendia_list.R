@@ -7,11 +7,8 @@
 #' @param limit integer Number of results to return per page. 
 #' @param offset integer The initial index from which to return the results. 
 #' @param latest_version boolean `True` will only return the highest `compendium_version` for each primary_organism. 
-
-
 #' @family compendia
-
-
+#' @export
 rb_compendia_list <- function(
     primary_organism__name = NULL,
     compendium_version = NULL,

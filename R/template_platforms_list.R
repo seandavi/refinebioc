@@ -1,9 +1,6 @@
 #' Unpaginated list of all the available "platform" information
-
-
 #' @family platforms
-
-
+#' @export
 rb_platforms_list <- function(
 
 )

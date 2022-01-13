@@ -23,11 +23,8 @@
 #' @param quantile_normalize boolean Part of the advanced options. Allows [skipping quantile normalization](http://docs.refine.bio/en/latest/faq.html#what-does-it-mean-to-skip-quantile-normalization-for-rna-seq-samples) for RNA-Seq samples. 
 #' @param quant_sf_only boolean Include only quant.sf files in the generated dataset. 
 #' @param svd_algorithm string Specifies choice of SVD algorithm 
-
-
 #' @family dataset
-
-
+#' @export
 rb_dataset_create <- function(
     id = NULL,
     data = NULL,

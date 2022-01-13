@@ -1,9 +1,6 @@
 #' Unpaginated list of all the available "institution" information
-
-
 #' @family institutions
-
-
+#' @export
 rb_institutions_list <- function(
 
 )

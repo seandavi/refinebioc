@@ -1,11 +1,8 @@
 #' List all processors.
 #' @param limit integer Number of results to return per page. 
 #' @param offset integer The initial index from which to return the results. 
-
-
 #' @family processors
-
-
+#' @export
 rb_processors_list <- function(
     limit = NULL,
     offset = NULL

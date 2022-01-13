@@ -20,11 +20,8 @@
 #' @param limit integer Number of results to return per page. 
 #' @param offset integer The initial index from which to return the results. 
 #' @param sample_accession_code string List the downloader jobs associated with a sample 
-
-
 #' @family jobs
-
-
+#' @export
 rb_jobs_downloader_list <- function(
     id = NULL,
     downloader_task = NULL,

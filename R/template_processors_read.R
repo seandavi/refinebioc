@@ -1,10 +1,7 @@
 #' Retrieves a processor by its ID
 #' @param id integer A unique integer value identifying this processor. (required)
-
-
 #' @family processors
-
-
+#' @export
 rb_processors_read <- function(
     id
 )

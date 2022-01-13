@@ -1,10 +1,7 @@
 #' Get a detailed view of the Quantile Normalization file for an organism.
 #' @param organism_name string Eg `DANIO_RERIO`, `MUS_MUSCULUS` (required)
-
-
 #' @family qn_targets
-
-
+#' @export
 rb_qn_targets_read <- function(
     organism_name
 )

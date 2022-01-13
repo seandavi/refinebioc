@@ -4,11 +4,8 @@
 #' @param processor__id number  
 #' @param limit integer Number of results to return per page. 
 #' @param offset integer The initial index from which to return the results. 
-
-
 #' @family computational_results
-
-
+#' @export
 rb_computational_results_list <- function(
     processor__id = NULL,
     limit = NULL,

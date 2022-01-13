@@ -1,10 +1,7 @@
 #' Retrieves an Original File by its ID
 #' @param id integer A unique integer value identifying this original file. (required)
-
-
 #' @family original_files
-
-
+#' @export
 rb_original_files_read <- function(
     id
 )

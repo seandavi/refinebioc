@@ -7,11 +7,8 @@
 #' @param offset integer The initial index from which to return the results. 
 #' @param organism__name string Organism name. Eg. `MUS_MUSCULUS` 
 #' @param length string Short hand for `index_type` Eg. `short` or `long` 
-
-
 #' @family transcriptome_indices
-
-
+#' @export
 rb_transcriptome_indices_list <- function(
     salmon_version = NULL,
     index_type = NULL,

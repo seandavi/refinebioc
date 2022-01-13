@@ -12,11 +12,8 @@
 #' @param ordering string Which field to use when ordering the results. 
 #' @param limit integer Number of results to return per page. 
 #' @param offset integer The initial index from which to return the results. 
-
-
 #' @family jobs
-
-
+#' @export
 rb_jobs_survey_list <- function(
     id = NULL,
     source_type = NULL,

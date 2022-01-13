@@ -17,11 +17,8 @@
 #' @param source_last_modified string  
 #' @param limit integer Number of results to return per page. 
 #' @param offset integer The initial index from which to return the results. 
-
-
 #' @family experiments
-
-
+#' @export
 rb_experiments_list <- function(
     title = NULL,
     description = NULL,

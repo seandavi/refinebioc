@@ -1,11 +1,8 @@
 #' Gets the S3 url associated with the organism and length, along with other metadata about
 #' the transcriptome index we have stored.
 #' @param id number Transcriptome Index Id eg `1` (required)
-
-
 #' @family transcriptome_indices
-
-
+#' @export
 rb_transcriptome_indices_read <- function(
     id
 )

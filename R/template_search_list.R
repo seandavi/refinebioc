@@ -55,11 +55,8 @@
 #' @param search string Search in title, publication_authors, sample_keywords, publication_title, submitter_institution, description, accession_code, alternate_accession_code, publication_doi, pubmed_id, sample_metadata_fields, platform_names. 
 #' @param limit integer Number of results to return per page. 
 #' @param offset integer The initial index from which to return the results. 
-
-
 #' @family search
-
-
+#' @export
 rb_search_list <- function(
     id = NULL,
     technology = NULL,

@@ -28,11 +28,15 @@
 }
 
 .make_family = function(opdef) {
-    sapply(opdef$tags,function(f) sprintf("#' @family %s",f))
+    vapply(opdef$tags,function(f) sprintf("#' @family %s",f),character(1))
 }
 
-.make_func_call = function(opdef) {
-    vals = sprintf("rb_%s <- function(",opdef$operationId)
+.make_func_call = function(opdef, export=TRUE) {
+    vals = ""
+    if(export) {
+        vals = "#' @export"
+    }
+    vals = c(vals,sprintf("rb_%s <- function(",opdef$operationId))
     param_lines = sapply(opdef$parameters, function(p) {
         if(!'required' %in% names(p)) {
             p$required = FALSE
@@ -58,8 +62,8 @@ make_doc_from_operation <- function(api, operation) {
     defs = get_operation_definitions(api)
     opdef = defs[[operation]]
     vals = .make_title(opdef)
-    vals = c(vals,.make_params(opdef),'\n')
-    vals = c(vals,.make_family(opdef),'\n')
+    vals = c(vals,.make_params(opdef))
+    vals = c(vals,.make_family(opdef))
     vals = c(vals,.make_func_call(opdef))
     paste(vals, collapse="\n")
 }

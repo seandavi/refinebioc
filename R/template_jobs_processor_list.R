@@ -21,11 +21,8 @@
 #' @param limit integer Number of results to return per page. 
 #' @param offset integer The initial index from which to return the results. 
 #' @param sample_accession_code string List the processor jobs associated with a sample 
-
-
 #' @family jobs
-
-
+#' @export
 rb_jobs_processor_list <- function(
     id = NULL,
     pipeline_applied = NULL,

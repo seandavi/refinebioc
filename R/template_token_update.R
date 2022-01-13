@@ -7,11 +7,8 @@
 #' @param id string  
 #' @param is_activated boolean  
 #' @param terms_and_conditions string  
-
-
 #' @family token
-
-
+#' @export
 rb_token_update <- function(
     id = NULL,
     is_activated = NULL,

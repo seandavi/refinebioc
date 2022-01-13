@@ -1,10 +1,7 @@
 #' Return details about a specific token.
 #' @param id string A UUID string identifying this api token. (required)
-
-
 #' @family token
-
-
+#' @export
 rb_token_read <- function(
     id
 )

@@ -1,11 +1,8 @@
 #' API endpoint stats_failures_downloader_list
 #'
 #' @param range string Specify a range from which to calculate the possible options 
-
-
 #' @family stats
-
-
+#' @export
 rb_stats_failures_downloader_list <- function(
     range = NULL
 )

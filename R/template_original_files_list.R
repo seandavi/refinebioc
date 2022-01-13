@@ -15,11 +15,8 @@
 #' @param ordering string Which field to use when ordering the results. 
 #' @param limit integer Number of results to return per page. 
 #' @param offset integer The initial index from which to return the results. 
-
-
 #' @family original_files
-
-
+#' @export
 rb_original_files_list <- function(
     id = NULL,
     filename = NULL,

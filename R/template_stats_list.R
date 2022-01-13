@@ -1,10 +1,7 @@
 #' Statistics about the health of the system.
 #' @param range string Specify a range from which to calculate the possible options 
-
-
 #' @family stats
-
-
+#' @export
 rb_stats_list <- function(
     range = NULL
 )

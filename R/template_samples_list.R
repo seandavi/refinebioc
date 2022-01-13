@@ -28,11 +28,8 @@
 #' @param dataset_id string Filters the result and only returns samples that are added to a dataset. 
 #' @param experiment_accession_code string Filters the result and only returns only the samples associated with an experiment accession code. 
 #' @param accession_codes string Provide a list of sample accession codes separated by commas and the endpoint will only return information about these samples. 
-
-
 #' @family samples
-
-
+#' @export
 rb_samples_list <- function(
     ordering = NULL,
     title = NULL,

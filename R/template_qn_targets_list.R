@@ -1,9 +1,6 @@
 #' This is a list of all of the organisms which have available QN Targets
-
-
 #' @family qn_targets
-
-
+#' @export
 rb_qn_targets_list <- function(
 
 )

@@ -1,10 +1,7 @@
 #' Retrieves a computed file by its ID
 #' @param id integer A unique integer value identifying this computed file. (required)
-
-
 #' @family computed_files
-
-
+#' @export
 rb_computed_files_read <- function(
     id
 )

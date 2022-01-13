@@ -1,10 +1,7 @@
 #' Retrieves a SurveyJob by ID
 #' @param id integer A unique integer value identifying this survey job. (required)
-
-
 #' @family jobs
-
-
+#' @export
 rb_jobs_survey_read <- function(
     id
 )
