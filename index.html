@@ -28,7 +28,7 @@
     
     <a class="navbar-brand me-2" href="index.html">RefineBio</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.1</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -78,20 +78,33 @@ URL: https://www.refine.bio</code></pre>
 <h2 id="basic-search">Basic search<a class="anchor" aria-label="anchor" href="#basic-search"></a>
 </h2>
 <pre class="{r}"><code><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://seandavi.github.io/RefineBio">RefineBio</a></span><span class="op">)</span>
-<span class="va">client</span> <span class="op">=</span> <span class="fu">RefineBio</span><span class="fu">::</span><span class="fu">RefineBio</span><span class="op">(</span><span class="op">)</span>
-<span class="va">search_results</span> <span class="op">=</span> <span class="fu"><a href="reference/rb_search.html">rb_search</a></span><span class="op">(</span><span class="va">client</span><span class="op">)</span>
+<span class="va">search_results</span> <span class="op">=</span> <span class="fu"><a href="reference/rb_search_list.html">rb_search_list</a></span><span class="op">(</span><span class="op">)</span>
 <span class="va">search_results</span><span class="op">$</span><span class="va">count</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">search_results</span><span class="op">$</span><span class="va">results</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="va">search_results</span><span class="op">$</span><span class="va">facets</span>,<span class="va">head</span><span class="op">)</span></code></pre>
 </div>
 <div class="section level2">
-<h2 id="for-developers-the-low-level-api">For developers: the low level API<a class="anchor" aria-label="anchor" href="#for-developers-the-low-level-api"></a>
+<h2 id="available-organisms">Available Organisms<a class="anchor" aria-label="anchor" href="#available-organisms"></a>
 </h2>
-<pre class="{r}"><code><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://seandavi.github.io/RefineBio">RefineBio</a></span><span class="op">)</span>
-<span class="va">client</span> <span class="op">=</span> <span class="fu">RefineBio</span><span class="op">(</span><span class="op">)</span>
-<span class="va">ops</span> <span class="op">=</span> <span class="fu">rapiclient</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/rapiclient/man/get_operations.html" class="external-link">get_operations</a></span><span class="op">(</span><span class="va">client</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">ops</span><span class="op">)</span></code></pre>
+<pre class="{r}"><code><span class="va">orgs</span> <span class="op">=</span> <span class="fu"><a href="reference/rb_organisms_list.html">rb_organisms_list</a></span><span class="op">(</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">orgs</span><span class="op">$</span><span class="va">results</span><span class="op">)</span></code></pre>
 </div>
+<div class="section level2">
+<h2 id="available-platforms">Available Platforms<a class="anchor" aria-label="anchor" href="#available-platforms"></a>
+</h2>
+<pre class="{r}"><code><span class="va">plats</span> <span class="op">=</span> <span class="fu"><a href="reference/rb_platforms_list.html">rb_platforms_list</a></span><span class="op">(</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">plats</span><span class="op">$</span><span class="va">results</span><span class="op">)</span>
+<span class="va">plats</span><span class="op">$</span><span class="va">count</span></code></pre>
+</div>
+</div>
+<div class="section level1">
+<h1 id="for-developers-the-low-level-api">For developers: the low level API<a class="anchor" aria-label="anchor" href="#for-developers-the-low-level-api"></a>
+</h1>
+<pre class="{r}"><code><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://seandavi.github.io/RefineBio">RefineBio</a></span><span class="op">)</span>
+<span class="va">client</span> <span class="op">=</span> <span class="fu"><a href="reference/rb_get_client.html">rb_get_client</a></span><span class="op">(</span><span class="op">)</span>
+<span class="va">ops</span> <span class="op">=</span> <span class="fu">rapiclient</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/rapiclient/man/get_operations.html" class="external-link">get_operations</a></span><span class="op">(</span><span class="va">client</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">ops</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">ops</span><span class="op">$</span><span class="va">qn_targets_read</span><span class="op">)</span></code></pre>
 </div>
 
   </main><aside class="col-md-3"><div class="license">
