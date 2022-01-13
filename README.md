@@ -1,7 +1,8 @@
 # RefineBio
 
-This package bridges the vast, homogeneously-processed transcriptomic
-data from [refine.bio](https://www.refine.bio) to Bioconductor.
+This package provides the bridge between Bioconductor and the vast, 
+homogeneously-processed transcriptomic
+data from [refine.bio](https://www.refine.bio).
 
 
 Cite the refine.bio project as:
