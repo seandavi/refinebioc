@@ -24,6 +24,5 @@ rb_token_update <- function(
     res = .process_json_result(
         do.call(rapiclient::get_operations(client)$token_update,args)
         )
-    res$facets = lapply(res$facets,.facet_to_data_frame)
     res
 }

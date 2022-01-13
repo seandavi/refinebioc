@@ -5,11 +5,20 @@
 #'
 #' @keywords internal
 .process_json_result <- function(result, encoding="UTF-8",...) {
-    jsonlite::fromJSON(
+    res = jsonlite::fromJSON(
         httr::content(
             result,
             type="text",
             encoding=encoding
         )
     )
+    if(is.data.frame(res)) {
+        return(res)
+    }
+    if(is.list(res)) {
+        if('facets' %in% names(res)) {
+            res$facets = lapply(res$facets,.facet_to_data_frame)
+        }
+    }
+    return(res)
 }

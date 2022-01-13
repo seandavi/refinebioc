@@ -28,19 +28,35 @@ BiocManager::install('seandavi/RefineBio')
 
 ```{r}
 library(RefineBio)
-client = RefineBio::RefineBio()
-search_results = rb_search(client)
+search_results = rb_search_list()
 search_results$count
 head(search_results$results)
 lapply(search_results$facets,head)
 ```
 
+## Available Organisms
 
-## For developers: the low level API 
+```{r}
+orgs = rb_organisms_list()
+head(orgs$results)
+```
+
+## Available Platforms
+
+```{r}
+plats = rb_platforms_list()
+head(plats$results)
+plats$count
+```
+
+
+# For developers: the low level API 
 
 ```{r}
 library(RefineBio)
-client = RefineBio()
+client = rb_get_client()
 ops = rapiclient::get_operations(client)
 names(ops)
+print(ops$qn_targets_read)
 ```
+

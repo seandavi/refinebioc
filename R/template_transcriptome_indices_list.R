@@ -28,6 +28,5 @@ rb_transcriptome_indices_list <- function(
     res = .process_json_result(
         do.call(rapiclient::get_operations(client)$transcriptome_indices_list,args)
         )
-    res$facets = lapply(res$facets,.facet_to_data_frame)
     res
 }

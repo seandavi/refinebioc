@@ -49,7 +49,6 @@
     res = .process_json_result(
         do.call(rapiclient::get_operations(client)$%s,args)
         )
-    res$facets = lapply(res$facets,.facet_to_data_frame)
     res
 }",opdef$operationId))
     vals

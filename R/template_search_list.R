@@ -84,6 +84,5 @@ rb_search_list <- function(
     res = .process_json_result(
         do.call(rapiclient::get_operations(client)$search_list,args)
         )
-    res$facets = lapply(res$facets,.facet_to_data_frame)
     res
 }

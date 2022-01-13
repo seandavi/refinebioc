@@ -84,6 +84,5 @@ rb_dataset_update <- function(
     res = .process_json_result(
         do.call(rapiclient::get_operations(client)$dataset_update,args)
         )
-    res$facets = lapply(res$facets,.facet_to_data_frame)
     res
 }

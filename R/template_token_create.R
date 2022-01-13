@@ -39,6 +39,5 @@ rb_token_create <- function(
     res = .process_json_result(
         do.call(rapiclient::get_operations(client)$token_create,args)
         )
-    res$facets = lapply(res$facets,.facet_to_data_frame)
     res
 }

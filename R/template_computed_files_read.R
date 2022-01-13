@@ -15,6 +15,5 @@ rb_computed_files_read <- function(
     res = .process_json_result(
         do.call(rapiclient::get_operations(client)$computed_files_read,args)
         )
-    res$facets = lapply(res$facets,.facet_to_data_frame)
     res
 }
