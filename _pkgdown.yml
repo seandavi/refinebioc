@@ -1,4 +1,5 @@
 url: https://seandavi.github.io/RefineBio
 template:
   bootstrap: 5
-  bootswatch: yeti
+  bootswatch: cyborg
+  theme: github-dark
