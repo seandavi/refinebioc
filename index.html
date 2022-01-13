@@ -24,11 +24,11 @@
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
     
 
-    <nav class="navbar fixed-top navbar-dark navbar-expand-lg bg-primary"><div class="container">
+    <nav class="navbar fixed-top navbar-dark navbar-expand-lg bg-dark"><div class="container">
     
     <a class="navbar-brand me-2" href="index.html">RefineBio</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.2</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -57,53 +57,157 @@
 </h1></div>
 <p>This package provides the bridge between Bioconductor and the vast, homogeneously-processed transcriptomic data from <a href="https://www.refine.bio" class="external-link">refine.bio</a>.</p>
 <p>Cite the refine.bio project as:</p>
+<blockquote>
 <p>Casey S. Greene, Dongbo Hu, Richard W. W. Jones, Stephanie Liu, David S. Mejia, Rob Patro, Stephen R. Piccolo, Ariel Rodriguez Romero, Hirak Sarkar, Candace L. Savonen, Jaclyn N. Taroni, William E. Vauclain, Deepashree Venkatesh Prasad, Kurt G. Wheeler. refine.bio: a resource of uniformly processed publicly available gene expression datasets. URL: <a href="https://www.refine.bio" class="external-link uri">https://www.refine.bio</a></p>
-</div>
-<div class="section level1">
-<h1 id="status">Status<a class="anchor" aria-label="anchor" href="#status"></a>
-</h1>
+</blockquote>
+<div class="section level2">
+<h2 id="status">Status<a class="anchor" aria-label="anchor" href="#status"></a>
+</h2>
 <p>This project is undergoing active development and not meant for general use.</p>
 </div>
-<div class="section level1">
-<h1 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
-</h1>
-<pre class="{r}"><code><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">'BiocManager'</span><span class="op">)</span>
-<span class="fu">BiocManager</span><span class="fu">::</span><span class="fu">install</span><span class="op">(</span><span class="st">'seandavi/RefineBio'</span><span class="op">)</span></code></pre>
-</div>
-<div class="section level1">
-<h1 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
-</h1>
 <div class="section level2">
-<h2 id="basic-search">Basic search<a class="anchor" aria-label="anchor" href="#basic-search"></a>
+<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
-<pre class="{r}"><code><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://seandavi.github.io/RefineBio">RefineBio</a></span><span class="op">)</span>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">'BiocManager'</span><span class="op">)</span>
+<span class="fu">BiocManager</span><span class="fu">::</span><span class="fu">install</span><span class="op">(</span><span class="st">'seandavi/RefineBio'</span><span class="op">)</span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
+</h2>
+<div class="section level3">
+<h3 id="basic-search">Basic search<a class="anchor" aria-label="anchor" href="#basic-search"></a>
+</h3>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://seandavi.github.io/RefineBio">RefineBio</a></span><span class="op">)</span>
 <span class="va">search_results</span> <span class="op">=</span> <span class="fu"><a href="reference/rb_search_list.html">rb_search_list</a></span><span class="op">(</span><span class="op">)</span>
-<span class="va">search_results</span><span class="op">$</span><span class="va">count</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">search_results</span><span class="op">$</span><span class="va">results</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="va">search_results</span><span class="op">$</span><span class="va">facets</span>,<span class="va">head</span><span class="op">)</span></code></pre>
+<span class="va">search_results</span><span class="op">$</span><span class="va">count</span></code></pre></div>
+<pre><code><span class="co">## [1] 62245</span></code></pre>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">search_results</span><span class="op">$</span><span class="va">results</span><span class="op">)</span></code></pre></div>
+<pre><code><span class="co">## # A tibble: 6 × 21</span>
+<span class="co">##      id title      publication_title    description    technology accession_code</span>
+<span class="co">##   &lt;int&gt; &lt;chr&gt;      &lt;chr&gt;                &lt;chr&gt;          &lt;chr&gt;      &lt;chr&gt;         </span>
+<span class="co">## 1 52090 Shared an… Shared and distinct… Neocortex con… RNA-SEQ    SRP150473     </span>
+<span class="co">## 2 51049 Transcrip… Conserved propertie… RNA sequencin… RNA-SEQ    SRP118985     </span>
+<span class="co">## 3 47744 In vivo m… Broadly neutralizin… Dengue virus … RNA-SEQ    SRP152576     </span>
+<span class="co">## 4 67685 Drug-indu… The NCI Transcripti… To identify p… MICROARRAY GSE116436     </span>
+<span class="co">## 5 50699 Single-ce… Classes and continu… We  studied  … RNA-SEQ    SRP109000     </span>
+<span class="co">## 6 51542 Single ce… Diversity of Intern… In order to i… RNA-SEQ    SRP124669     </span>
+<span class="co">## # … with 15 more variables: alternate_accession_code &lt;chr&gt;,</span>
+<span class="co">## #   submitter_institution &lt;chr&gt;, has_publication &lt;lgl&gt;, publication_doi &lt;chr&gt;,</span>
+<span class="co">## #   publication_authors &lt;list&gt;, sample_metadata_fields &lt;list&gt;,</span>
+<span class="co">## #   platform_names &lt;list&gt;, platform_accession_codes &lt;list&gt;,</span>
+<span class="co">## #   organism_names &lt;list&gt;, downloadable_organism_names &lt;list&gt;, pubmed_id &lt;chr&gt;,</span>
+<span class="co">## #   num_total_samples &lt;int&gt;, num_processed_samples &lt;int&gt;,</span>
+<span class="co">## #   num_downloadable_samples &lt;int&gt;, source_first_published &lt;chr&gt;</span></code></pre>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="va">search_results</span><span class="op">$</span><span class="va">facets</span>,<span class="va">head</span><span class="op">)</span></code></pre></div>
+<pre><code><span class="co">## $has_publication</span>
+<span class="co">##   category  count</span>
+<span class="co">## 1    false 721263</span>
+<span class="co">## 2     true 251865</span>
+<span class="co">## </span>
+<span class="co">## $downloadable_organism_names</span>
+<span class="co">##                  category  count</span>
+<span class="co">## 1            HOMO_SAPIENS 521539</span>
+<span class="co">## 2            MUS_MUSCULUS 292681</span>
+<span class="co">## 4       RATTUS_NORVEGICUS  39311</span>
+<span class="co">## 7             DANIO_RERIO  28598</span>
+<span class="co">## 3    ARABIDOPSIS_THALIANA  23999</span>
+<span class="co">## 5 DROSOPHILA_MELANOGASTER  17239</span>
+<span class="co">## </span>
+<span class="co">## $platform_accession_codes</span>
+<span class="co">##             category  count</span>
+<span class="co">## 3        hgu133plus2 146159</span>
+<span class="co">## 2  IlluminaHiSeq2500 142474</span>
+<span class="co">## 1  IlluminaHiSeq2000 125755</span>
+<span class="co">## 4          mouse4302  59093</span>
+<span class="co">## 12           hgu133a  50743</span>
+<span class="co">## 5         NextSeq500  48894</span>
+<span class="co">## </span>
+<span class="co">## $technology</span>
+<span class="co">##     category  count</span>
+<span class="co">## 1 microarray 609303</span>
+<span class="co">## 2    rna-seq 350551</span>
+<span class="co">## 3    unknown   1200</span></code></pre>
+</div>
+<div class="section level3">
+<h3 id="available-organisms">Available Organisms<a class="anchor" aria-label="anchor" href="#available-organisms"></a>
+</h3>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">orgs</span> <span class="op">=</span> <span class="fu"><a href="reference/rb_organisms_list.html">rb_organisms_list</a></span><span class="op">(</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">orgs</span><span class="op">$</span><span class="va">results</span><span class="op">)</span></code></pre></div>
+<pre><code><span class="co">## # A tibble: 6 × 4</span>
+<span class="co">##   name                 taxonomy_id has_compendia has_quantfile_compendia</span>
+<span class="co">##   &lt;chr&gt;                      &lt;int&gt; &lt;lgl&gt;         &lt;lgl&gt;                  </span>
+<span class="co">## 1 CIONA_INTESTINALIS          7719 NA            NA                     </span>
+<span class="co">## 2 MUS_PAHARI                 10093 FALSE         TRUE                   </span>
+<span class="co">## 3 NOTAMACROPUS_EUGENII        9315 FALSE         TRUE                   </span>
+<span class="co">## 4 TAENIOPYGIA_GUTTATA        59729 NA            NA                     </span>
+<span class="co">## 5 PETROMYZON_MARINUS          7757 NA            NA                     </span>
+<span class="co">## 6 ANAS_PLATYRHYNCHOS          8839 NA            NA</span></code></pre>
+</div>
+<div class="section level3">
+<h3 id="available-platforms">Available Platforms<a class="anchor" aria-label="anchor" href="#available-platforms"></a>
+</h3>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">plats</span> <span class="op">=</span> <span class="fu"><a href="reference/rb_platforms_list.html">rb_platforms_list</a></span><span class="op">(</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">plats</span><span class="op">)</span></code></pre></div>
+<pre><code><span class="co">## # A tibble: 6 × 2</span>
+<span class="co">##   platform_accession_code  platform_name                                        </span>
+<span class="co">##   &lt;chr&gt;                    &lt;chr&gt;                                                </span>
+<span class="co">## 1 IonTorrentS5             Ion Torrent S5                                       </span>
+<span class="co">## 2 ovigene10st              [OviGene-1_0-st] Ovine Gene 1.1 ST Array             </span>
+<span class="co">## 3 GPL4861                  Swegene Human 27K RAP (positions from file)          </span>
+<span class="co">## 4 Illumina_MouseRef-8_v2.0 Illumina MouseRef-8 v2.0 expression beadchip (ILMN_S…</span>
+<span class="co">## 5 GPL16365                 Candida albicans tiling ChIP array                   </span>
+<span class="co">## 6 GPL16275                 Agilent-035430 mouse miRNA array (miRNA_107_Sep09 mi…</span></code></pre>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="va">plats</span><span class="op">)</span></code></pre></div>
+<pre><code><span class="co">## [1] 504   2</span></code></pre>
+</div>
 </div>
 <div class="section level2">
-<h2 id="available-organisms">Available Organisms<a class="anchor" aria-label="anchor" href="#available-organisms"></a>
+<h2 id="for-developers-the-low-level-api">For developers: the low level API<a class="anchor" aria-label="anchor" href="#for-developers-the-low-level-api"></a>
 </h2>
-<pre class="{r}"><code><span class="va">orgs</span> <span class="op">=</span> <span class="fu"><a href="reference/rb_organisms_list.html">rb_organisms_list</a></span><span class="op">(</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">orgs</span><span class="op">$</span><span class="va">results</span><span class="op">)</span></code></pre>
-</div>
-<div class="section level2">
-<h2 id="available-platforms">Available Platforms<a class="anchor" aria-label="anchor" href="#available-platforms"></a>
-</h2>
-<pre class="{r}"><code><span class="va">plats</span> <span class="op">=</span> <span class="fu"><a href="reference/rb_platforms_list.html">rb_platforms_list</a></span><span class="op">(</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">plats</span><span class="op">$</span><span class="va">results</span><span class="op">)</span>
-<span class="va">plats</span><span class="op">$</span><span class="va">count</span></code></pre>
-</div>
-</div>
-<div class="section level1">
-<h1 id="for-developers-the-low-level-api">For developers: the low level API<a class="anchor" aria-label="anchor" href="#for-developers-the-low-level-api"></a>
-</h1>
-<pre class="{r}"><code><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://seandavi.github.io/RefineBio">RefineBio</a></span><span class="op">)</span>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://seandavi.github.io/RefineBio">RefineBio</a></span><span class="op">)</span>
 <span class="va">client</span> <span class="op">=</span> <span class="fu"><a href="reference/rb_get_client.html">rb_get_client</a></span><span class="op">(</span><span class="op">)</span>
 <span class="va">ops</span> <span class="op">=</span> <span class="fu">rapiclient</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/rapiclient/man/get_operations.html" class="external-link">get_operations</a></span><span class="op">(</span><span class="va">client</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">ops</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">ops</span><span class="op">$</span><span class="va">qn_targets_read</span><span class="op">)</span></code></pre>
+<span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">ops</span><span class="op">)</span></code></pre></div>
+<pre><code><span class="co">##  [1] "compendia_list"                 "compendia_read"                </span>
+<span class="co">##  [3] "computational_results_list"     "computational_results_read"    </span>
+<span class="co">##  [5] "computed_files_list"            "computed_files_read"           </span>
+<span class="co">##  [7] "dataset_create"                 "dataset_read"                  </span>
+<span class="co">##  [9] "dataset_update"                 "experiments_list"              </span>
+<span class="co">## [11] "experiments_read"               "institutions_list"             </span>
+<span class="co">## [13] "jobs_downloader_list"           "jobs_downloader_read"          </span>
+<span class="co">## [15] "jobs_processor_list"            "jobs_processor_read"           </span>
+<span class="co">## [17] "jobs_survey_list"               "jobs_survey_read"              </span>
+<span class="co">## [19] "organisms_list"                 "organisms_read"                </span>
+<span class="co">## [21] "original_files_list"            "original_files_read"           </span>
+<span class="co">## [23] "platforms_list"                 "processors_list"               </span>
+<span class="co">## [25] "processors_read"                "qn_targets_list"               </span>
+<span class="co">## [27] "qn_targets_read"                "samples_list"                  </span>
+<span class="co">## [29] "samples_read"                   "search_list"                   </span>
+<span class="co">## [31] "stats-about_list"               "stats_list"                    </span>
+<span class="co">## [33] "stats_failures_downloader_list" "stats_failures_processor_list" </span>
+<span class="co">## [35] "token_create"                   "token_read"                    </span>
+<span class="co">## [37] "token_update"                   "transcriptome_indices_list"    </span>
+<span class="co">## [39] "transcriptome_indices_read"</span></code></pre>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">ops</span><span class="op">$</span><span class="va">qn_targets_read</span><span class="op">)</span></code></pre></div>
+<pre><code><span class="co">## qn_targets_read </span>
+<span class="co">##  </span>
+<span class="co">## Description:</span>
+<span class="co">##   Get a detailed view of the Quantile Normalization file for an</span>
+<span class="co">##   organism.</span>
+<span class="co">## </span>
+<span class="co">## Parameters:</span>
+<span class="co">##   organism_name (string)</span>
+<span class="co">##     Eg `DANIO_RERIO`, `MUS_MUSCULUS`</span></code></pre>
+</div>
 </div>
 <div class="section level1">
 <h1 id="roadmap">Roadmap<a class="anchor" aria-label="anchor" href="#roadmap"></a>
