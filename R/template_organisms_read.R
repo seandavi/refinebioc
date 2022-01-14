@@ -1,8 +1,9 @@
 #' Retrieves an organism by its name.
+#' @param name string  (required)
 #' @family organisms
 #' @export
 rb_organisms_read <- function(
-
+    name
 )
 
 {

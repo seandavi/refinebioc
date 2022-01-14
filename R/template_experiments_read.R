@@ -1,8 +1,9 @@
 #' Retrieve details for an experiment given it's accession code
+#' @param accession_code string  (required)
 #' @family experiments
 #' @export
 rb_experiments_read <- function(
-
+    accession_code
 )
 
 {

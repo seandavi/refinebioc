@@ -4,20 +4,13 @@
 \alias{rb_get_token}
 \title{Create or get an active API token for use in downloading from the API}
 \usage{
-rb_get_token(activate = TRUE, quiet = TRUE)
-}
-\arguments{
-\item{activate}{logical(1) Setting to \code{TRUE} implies agreement with
-the refine.bio terms of service for downloading.}
-
-\item{quiet}{logical(1) Setting to \code{FALSE} will message the complete
-text of the terms of services.}
+rb_get_token()
 }
 \description{
 The API token mechanism that refine.bio uses is relatively simple.
 There is no "authentication" per se, just an acknowledgement of
 agreement to terms and conditions of use. The token is only needed
-for download of data.
+for download of data. Other functionality will work fine without it.
 }
 \details{
 Upon calling this function the first time in a session, if a token

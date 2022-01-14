@@ -1,8 +1,9 @@
 #' Retrieves a computational result by its ID
+#' @param id integer A unique integer value identifying this computational result. (required)
 #' @family computational_results
 #' @export
 rb_computational_results_read <- function(
-
+    id
 )
 
 {

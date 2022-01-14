@@ -1,8 +1,9 @@
 #' Retrieves a DownloaderJob by ID
+#' @param id integer A unique integer value identifying this downloader job. (required)
 #' @family jobs
 #' @export
 rb_jobs_downloader_read <- function(
-
+    id
 )
 
 {

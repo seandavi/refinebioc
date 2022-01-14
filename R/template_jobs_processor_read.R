@@ -1,8 +1,9 @@
 #' Retrieves a ProcessorJob by ID
+#' @param id integer A unique integer value identifying this processor job. (required)
 #' @family jobs
 #' @export
 rb_jobs_processor_read <- function(
-
+    id
 )
 
 {

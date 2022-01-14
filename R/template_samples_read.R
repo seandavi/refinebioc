@@ -1,8 +1,9 @@
 #' Retrieve the details for a Sample given its accession code
+#' @param accession_code string  (required)
 #' @family samples
 #' @export
 rb_samples_read <- function(
-
+    accession_code
 )
 
 {
