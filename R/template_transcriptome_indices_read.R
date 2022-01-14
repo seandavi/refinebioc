@@ -10,8 +10,14 @@ rb_transcriptome_indices_read <- function(
 {
     args = as.list(environment())
     client = rb_get_client()
+    token = rb_get_token()
+    operation = rapiclient::get_operations(client)$transcriptome_indices_read
+    if(!is.null(token)) {
+        headers = c('API-KEY'=token)
+        operation = rapiclient::get_operations(client,.headers=headers)$transcriptome_indices_read
+    }
     res = .process_json_result(
-        do.call(rapiclient::get_operations(client)$transcriptome_indices_read,args)
+        do.call(operation,args)
         )
     res
 }
