@@ -1,7 +1,7 @@
 Package: RefineBio
 Type: Package
 Title: The bridge between refine.bio and Bioconductor
-Version: 0.3.2
+Version: 0.3.3
 Authors@R: 
   c(person(given = "Alex",
            family = "Ho",
