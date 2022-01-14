@@ -64,6 +64,9 @@
     <loc>https://seandavi.github.io/RefineBio/reference/rb_get_client.html</loc>
   </url>
   <url>
+    <loc>https://seandavi.github.io/RefineBio/reference/rb_get_token.html</loc>
+  </url>
+  <url>
     <loc>https://seandavi.github.io/RefineBio/reference/rb_institutions_list.html</loc>
   </url>
   <url>
@@ -137,15 +140,6 @@
   </url>
   <url>
     <loc>https://seandavi.github.io/RefineBio/reference/rb_stats_list.html</loc>
-  </url>
-  <url>
-    <loc>https://seandavi.github.io/RefineBio/reference/rb_token_create.html</loc>
-  </url>
-  <url>
-    <loc>https://seandavi.github.io/RefineBio/reference/rb_token_read.html</loc>
-  </url>
-  <url>
-    <loc>https://seandavi.github.io/RefineBio/reference/rb_token_update.html</loc>
   </url>
   <url>
     <loc>https://seandavi.github.io/RefineBio/reference/rb_transcriptome_indices_list.html</loc>

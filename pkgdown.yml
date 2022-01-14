@@ -1,8 +1,8 @@
 pandoc: 2.7.3
-pkgdown: 2.0.1
+pkgdown: 2.0.2
 pkgdown_sha: ~
 articles: {}
-last_built: 2022-01-13T10:12Z
+last_built: 2022-01-14T01:38Z
 urls:
   reference: https://seandavi.github.io/RefineBio/reference
   article: https://seandavi.github.io/RefineBio/articles
