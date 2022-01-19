@@ -16,9 +16,6 @@
     <loc>https://seandavi.github.io/RefineBio/index.html</loc>
   </url>
   <url>
-    <loc>https://seandavi.github.io/RefineBio/reference/dot-facet_to_data_frame.html</loc>
-  </url>
-  <url>
     <loc>https://seandavi.github.io/RefineBio/reference/dot-process_json_result.html</loc>
   </url>
   <url>
@@ -88,9 +85,6 @@
     <loc>https://seandavi.github.io/RefineBio/reference/rb_jobs_survey_read.html</loc>
   </url>
   <url>
-    <loc>https://seandavi.github.io/RefineBio/reference/rb_organisms.html</loc>
-  </url>
-  <url>
     <loc>https://seandavi.github.io/RefineBio/reference/rb_organisms_list.html</loc>
   </url>
   <url>
@@ -101,9 +95,6 @@
   </url>
   <url>
     <loc>https://seandavi.github.io/RefineBio/reference/rb_original_files_read.html</loc>
-  </url>
-  <url>
-    <loc>https://seandavi.github.io/RefineBio/reference/rb_platforms.html</loc>
   </url>
   <url>
     <loc>https://seandavi.github.io/RefineBio/reference/rb_platforms_list.html</loc>
@@ -125,9 +116,6 @@
   </url>
   <url>
     <loc>https://seandavi.github.io/RefineBio/reference/rb_samples_read.html</loc>
-  </url>
-  <url>
-    <loc>https://seandavi.github.io/RefineBio/reference/rb_search.html</loc>
   </url>
   <url>
     <loc>https://seandavi.github.io/RefineBio/reference/rb_search_list.html</loc>
