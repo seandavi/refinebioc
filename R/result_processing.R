@@ -1,3 +1,8 @@
+.facet_to_data_frame <- function(l) {
+    tmp = unlist(l)
+    return(data.frame(category=names(tmp), count=tmp))
+}
+
 #' process the httr json response
 #'
 #' @param result [httr::response] object with body assumed to be json
