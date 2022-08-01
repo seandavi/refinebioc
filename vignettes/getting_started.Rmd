@@ -28,7 +28,7 @@ library(RefineBio)
 ```
 
 
-# RefineBio
+# Background
 
 This package provides the bridge between Bioconductor and the vast, 
 homogeneously-processed transcriptomic
