@@ -1,0 +1,108 @@
+---
+title: "Getting Started with RefineBio"
+author:
+- name: First Author
+  affiliation: First Author's Affiliation
+- name: Second Author
+  affiliation: Second Author's Affiliation
+  email: corresponding@author.com
+package: packageName
+output:
+  BiocStyle::html_document
+abstract: |
+  Description of your vignette
+vignette: |
+  %\VignetteIndexEntry{Getting started with RefineBio}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+# Installation
+
+    BiocManager::install('seandavi/RefineBio')
+
+# Load library
+
+```{r}
+library(RefineBio)
+```
+
+
+# Background
+
+This package provides the bridge between Bioconductor and the vast, 
+homogeneously-processed transcriptomic
+data from [refine.bio](https://www.refine.bio).
+
+
+Cite the refine.bio project as:
+
+> Casey S. Greene, Dongbo Hu, Richard W. W. Jones, Stephanie Liu, David S. Mejia, Rob Patro, Stephen R. Piccolo, Ariel Rodriguez Romero, Hirak Sarkar, Candace L. Savonen, Jaclyn N. Taroni, William E. Vauclain, Deepashree Venkatesh Prasad, Kurt G. Wheeler. refine.bio: a resource of uniformly processed publicly available gene expression datasets. URL: https://www.refine.bio
+
+
+# Status
+
+This project is undergoing active development and not meant for general use.
+
+# Usage
+
+## Basic search
+
+```{r}
+library(RefineBio)
+search_results = rb_search_list()
+search_results$count
+head(search_results$results)
+lapply(search_results$facets,head)
+```
+
+## Available Organisms
+
+```{r}
+orgs = rb_organisms_list()
+head(orgs$results)
+```
+
+## Available Platforms
+
+```{r}
+plats = rb_platforms_list()
+head(plats)
+dim(plats)
+```
+
+
+# For developers
+
+## The low level API 
+
+```{r}
+library(RefineBio)
+client = rb_get_client()
+ops = rapiclient::get_operations(client)
+names(ops)
+print(ops$qn_targets_read)
+```
+
+## Roadmap
+
+- [x] Basic API endpoints
+  - [x] Automated mapping to R objects
+  - [ ] s3 classes and methods for R response objects (subclass of list, basically)
+- [x] Low-level [rapiclient-based](https://github.com/bergant/rapiclient) client
+- [x] R documentation templated from openapi docs
+- [x] Response handling for list and data.frame response
+- [ ] Token handling to allow downloads
+- [ ] File download capability
+- [ ] Metadata with file downloads
+- [ ] Import of data into R/Biocondutor objects
+- [ ] Vignettes
+  - [ ] R-based API
+  - [ ] rapiclient-based API
+  - [ ] common workflows
+
+# Session info {.unnumbered}
+
+```{r sessionInfo, echo=FALSE}
+sessionInfo()
+```
