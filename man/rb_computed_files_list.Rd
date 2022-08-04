@@ -56,7 +56,9 @@ rb_computed_files_list(
 \description{
 It's possible to download each one of these files by providing a valid token. To
 acquire and activate an API key see the documentation for the \href{#tag/token}{/token} endpoint.
-When a valid token is provided the url will be sent back in the field \code{download_url}. Example:\if{html}{\out{<div class="sourceCode py">}}\preformatted{import requests
+When a valid token is provided the url will be sent back in the field \code{download_url}. Example:
+
+\if{html}{\out{<div class="sourceCode py">}}\preformatted{import requests
 import json
 headers = \{
     'Content-Type': 'application/json',
@@ -65,8 +67,10 @@ headers = \{
 requests.get('https://api.refine.bio/v1/computed_files/?id=5796866', \{\}, headers=headers)
 }\if{html}{\out{</div>}}
 
-This endpoint can also be used to fetch all the compendia files we have generated with:\preformatted{GET /computed_files?is_compendia=True&is_public=True
-}
+This endpoint can also be used to fetch all the compendia files we have generated with:
+
+\if{html}{\out{<div class="sourceCode">}}\preformatted{GET /computed_files?is_compendia=True&is_public=True
+}\if{html}{\out{</div>}}
 }
 \seealso{
 Other computed_files: 

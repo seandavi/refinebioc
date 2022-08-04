@@ -60,17 +60,21 @@ filters can be found in the \href{https://django-elasticsearch-dsl-drf.readthedo
 \details{
 There's an additional field in the response named \code{facets} that contain stats on the number of results per filter type.
 
-Example Requests:\preformatted{?search=medulloblastoma
+Example Requests:
+
+\if{html}{\out{<div class="sourceCode">}}\preformatted{?search=medulloblastoma
 ?id=1
 ?search=medulloblastoma&technology=microarray&has_publication=true
 ?ordering=source_first_published
-}
+}\if{html}{\out{</div>}}
 
 This endpoint also accepts POST requests for larger queries. Any of the filters
 accepted as query parameters are also accepted in a JSON object in the request
 body.
 
-Example Requests (from our tests):\if{html}{\out{<div class="sourceCode python">}}\preformatted{import requests
+Example Requests (from our tests):
+
+\if{html}{\out{<div class="sourceCode python">}}\preformatted{import requests
 import json
 
 headers = \{
