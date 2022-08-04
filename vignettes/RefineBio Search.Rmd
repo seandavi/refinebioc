@@ -1,0 +1,99 @@
+---
+title: "RefineBio Search"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+library(RefineBio)
+```
+
+## Performing a basic search
+
+In order to perform a basic search, run the rb_search_list() function with your search terms. This example will be searching with for experiments involving Medulloblastoma.
+
+```{r, include=TRUE, echo=TRUE}
+x = rb_search_list(search = "Medulloblastoma")
+```
+
+## Performing a filtered search
+
+You can apply filtered searches in the following filter categories:  
+    -organism  
+    -technology  
+    -platform  
+    -has_publication
+
+```{r, include=TRUE, echo=TRUE}
+x = rb_search_list(search = "Medulloblastoma",
+               organism = "HOMO_SAPIENS",
+               technology = "rna-seq",
+               platform = "IlluminaHiSeq2500")
+               # has_publication=TRUE)
+```
+
+These categories, excluding "has_publication" can also take multiple values to further the search.
+
+```{r, include=TRUE, echo=TRUE}
+x = rb_search_list(search = "Medulloblastoma",
+               organism = "HOMO_SAPIENS",
+               technology = "rna-seq",
+               platform = "IlluminaHiSeq2500")
+               # has_publication=TRUE)
+```
+
+## Viewing results
+
+You can view your results by accessing the following elements of the data frame.  
+The following is an example for accessing elements of the dataset.  
+ 
+Returning number of search hits:
+
+```{r, include=TRUE, echo=TRUE}
+x$count
+```
+
+Through the use of facets you can further specify your search by previewing the
+number of hits you would obtain if you had applied another filter. For this
+example, we will look up the number of hits for different platforms.
+
+```{r, include=TRUE, echo=TRUE}
+x$facets$platform_accession_codes
+```
+
+To access results from the data frame, you can look for the following categories:
+    -id
+    -title
+    -publication_title
+    -description
+    -technology
+    -accession_code
+    -alternate_accession_code
+    -submitter_institution
+    -has_publication
+    -publication_doi
+    -publication_authors
+    -sample_metadata_fields
+    -platform_names
+    -platform_accession_codes
+    -organism_names
+    -pubmed_id
+    -num_total_samples
+    -num_processed_samples
+    -num_downloadable_samples
+    -source_first_published
+    
+The following are some examples of result accession.
+
+```{r, include=TRUE, echo=TRUE}
+x$results$id
+x$results$sample_metadata_fields
+x$results$pubmed_id
+```
+
+## Viewing specific result
+
+If you would like to see the results for a specific search hit, then you can access the data frame as follows:
+
+```{r, include=TRUE, echo=TRUE}
+
+```
