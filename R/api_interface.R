@@ -10,10 +10,22 @@ make_request <- function(method, url, ...) {
 
     # We are expecting JSON
     if (httr::http_type(response) != "application/json") {
-        stop("API did not return json", call. = FALSE)
+        stop("API did not return the expected json datatype", call. = FALSE)
     }
-    httr::stop_for_status(response)
-    response
+
+    # Convert http errors into R errors
+    if (httr::http_error(response)) {
+        stop(
+            sprintf(
+                "RefineBio API request failed [%s]\n<%s>\n%s\n%s",
+                status_code(response),
+                parsed$message,
+                parsed$error_type,
+                parsed$details
+            ),
+            call. = FALSE
+        )
+    }
     to_keep <- c(
         "status_code",
         "headers",
@@ -23,7 +35,7 @@ make_request <- function(method, url, ...) {
     )
     ret <- response[to_keep]
     body_parsed <- jsonlite::fromJSON(
-        content(response, as = "text", encoding = "utf-8"),
+        httr::content(response, as = "text", encoding = "utf-8"),
         simplifyDataFrame = TRUE
     )
     if (!("results" %in% names(body_parsed))) {
