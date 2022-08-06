@@ -1,11 +1,15 @@
 make_request <- function(method, url, ...) {
+    # set a user agent
+    ua <- httr::user_agent("http://github.com/seandavi/RefineBio")
+
     response <- httr::VERB(
         verb = method,
         url,
         ...,
         httr::content_type("application/json"),
         httr::add_headers("API-KEY" = rb_get_token()),
-        httr::accept_json()
+        httr::accept_json(),
+        ua
     )
 
     # We are expecting JSON
