@@ -5,8 +5,13 @@ make_request <- function(method, url, ...) {
         ...,
         httr::content_type("application/json"),
         httr::add_headers("API-KEY" = rb_get_token()),
-        verbose()
+        httr::accept_json()
     )
+
+    # We are expecting JSON
+    if (httr::http_type(response) != "application/json") {
+        stop("API did not return json", call. = FALSE)
+    }
     httr::stop_for_status(response)
     response
     to_keep <- c(
