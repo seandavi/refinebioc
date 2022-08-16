@@ -13,9 +13,9 @@
 #'
 #' @export
 rb_get_token <- function() {
-    if (!.rb_has_agreed_to_tos()) {
-        return(NULL)
-    }
+    #    if (!.rb_has_agreed_to_tos()) {
+    #        return(NULL)
+    #    }
     if (!is.null(.rb_environment[["token"]])) {
         return(.rb_environment[["token"]])
     }

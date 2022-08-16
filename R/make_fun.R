@@ -49,20 +49,10 @@
     })
     vals <- c(vals, paste(param_lines, collapse = ",\n"))
     vals <- c(vals, ")\n")
-    vals <- c(vals, sprintf("{
+    vals <- c(vals, sprintf('{
     args = as.list(environment())
-    client = rb_get_client()
-    token = rb_get_token()
-    operation = rapiclient::get_operations(client)$%s
-    if(!is.null(token)) {
-        headers = c('API-KEY'=token)
-        operation = rapiclient::get_operations(client,.headers=headers)$%s
-    }
-    res = .process_json_result(
-        do.call(operation,args)
-        )
-    res
-}", opdef$operationId, opdef$operationId))
+    get_by_endpoint("%s", query=args)
+}', opdef$path))
     vals
 }
 
