@@ -1,7 +1,6 @@
 make_request <- function(method, url, ...) {
     # set a user agent
     ua <- httr::user_agent("http://github.com/seandavi/RefineBio")
-
     response <- httr::VERB(
         verb = method,
         url,
@@ -19,14 +18,15 @@ make_request <- function(method, url, ...) {
 
     # Convert http errors into R errors
     if (httr::http_error(response)) {
+        msg <- sprintf(
+            "RefineBio API request failed [%d]\n<%s>\n%s\n%s",
+            status_code(response),
+            response$message,
+            response$error_type,
+            response$details
+        )
         stop(
-            sprintf(
-                "RefineBio API request failed [%s]\n<%s>\n%s\n%s",
-                status_code(response),
-                parsed$message,
-                parsed$error_type,
-                parsed$details
-            ),
+            response,
             call. = FALSE
         )
     }
@@ -46,7 +46,6 @@ make_request <- function(method, url, ...) {
         body_parsed <- list(results = body_parsed)
     }
     ret <- c(ret, body_parsed)
-    # ret$results <- as.data.frame(do.call(rbind, ret$results))
     class(ret) <- c("rb_result", class(ret))
     ret
 }
@@ -64,7 +63,7 @@ put_url <- function(url, body = NULL) {
 }
 
 make_url <- function(endpoint) {
-    httr::modify_url(base_url, path = paste0("v1", endpoint))
+    httr::modify_url(.refinebio_url, path = paste0("v1", endpoint))
 }
 
 get_by_endpoint <- function(endpoint, query = NULL) {
