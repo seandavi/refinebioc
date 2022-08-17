@@ -15,6 +15,7 @@ require(R6)
 #'
 #' ```
 #' d = Dataset$new(studies="GSE34126")
+#' d$email_address = 'your_email@ex.com'
 #' d$save()$start_processing()$wait_until_ready()$download()
 #' ```
 #'
@@ -39,7 +40,8 @@ Dataset <- R6::R6Class(
         #'
         #' @return A new [RefineBio::Dataset$new()] object.
         initialize = function(studies, quantile_normalize = NULL,
-                              quant_sf_only = NULL, svd_algorithm = NULL, scale_by = NULL, aggregate_by = NULL) {
+                              quant_sf_only = NULL, svd_algorithm = NULL,
+                              scale_by = NULL, aggregate_by = NULL) {
             self$id <- NULL
             self$data <- setNames(as.list(rep("ALL", length(studies))), studies)
             self$quantile_normalize <- quantile_normalize
@@ -51,7 +53,7 @@ Dataset <- R6::R6Class(
         save = function() {
             body <- list()
             body$data <- self$data
-            body$email_address <- unbox(self$email_address)
+            body$email_address <- jsonlite::unbox(self$email_address)
             transfer_categories <- c(
                 "aggregate_by",
                 "scale_by",
@@ -71,10 +73,10 @@ Dataset <- R6::R6Class(
             if (!is.null(self$id)) {
                 response <- put_by_endpoint(
                     paste0("/dataset/", self$id, "/"),
-                    body = toJSON(body)
+                    body = jsonlite::toJSON(body)
                 )
             } else {
-                response <- post_by_endpoint("/dataset/", body = toJSON(body))
+                response <- post_by_endpoint("/dataset/", body = jsonlite::toJSON(body))
             }
             self$id <- response$results$id
             self$data <- response$results$data
@@ -113,7 +115,20 @@ Dataset <- R6::R6Class(
         },
         download = function(base_path = ".") {
             if (private$is_processed & !is.null(private$download_url)) {
-                httr::GET(private$download_url, httr::progress(), httr::write_disk(file.path(base_path, paste0(self$id, ".zip"))))
+                httr::GET(
+                    private$download_url,
+                    httr::progress(),
+                    httr::write_disk(file.path(base_path, paste0(self$id, ".zip")))
+                )
+                private$local_file <- file.path(base_path, paste0(self$id, ".zip"))
+            }
+            invisible(self)
+        },
+        extract = function(base_path = ".") {
+            extract_directory <- file.path(base_path, self$id)
+            if (private$is_processed & !is.null(private$download_url)) {
+                unzip(private$local_file, exdir = extract_directory)
+                private$extract_directory <- extract_directory
             }
         }
     ),
@@ -135,6 +150,7 @@ Dataset <- R6::R6Class(
         size_in_bytes = NULL,
         sha1 = NULL,
         download_url = NULL,
+        local_file = NULL,
         GET = function() {
             response <- get_by_endpoint(sprintf("/dataset/%s/", self$id))
             for (k in names(response$results)) {
