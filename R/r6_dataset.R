@@ -39,7 +39,7 @@ Dataset <- R6::R6Class(
         #' of experiments or studies to include in the dataset (eg., GSE346126)
         #'
         #' @return A new [RefineBio::Dataset$new()] object.
-        initialize = function(studies, quantile_normalize = NULL,
+        initialize = function(studies, email_address, quantile_normalize = NULL,
                               quant_sf_only = NULL, svd_algorithm = NULL,
                               scale_by = NULL, aggregate_by = NULL) {
             self$id <- NULL
@@ -48,7 +48,12 @@ Dataset <- R6::R6Class(
             self$quant_sf_only <- quant_sf_only
             self$svd_algorithm <- svd_algorithm
             self$scale_by <- scale_by
+            self$email_address <- email_address
             self$aggregate_by <- aggregate_by
+        },
+        run_pipeline = function() {
+            self$save()$start_processing()$wait_until_ready()$download()$extract()
+            return(self)
         },
         save = function() {
             body <- list()
