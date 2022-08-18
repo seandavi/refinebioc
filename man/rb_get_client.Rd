@@ -24,12 +24,10 @@ cache.
 }
 \examples{
 
-client = RefineBio()
+client <- RefineBio()
 
 # operations
-ops = rapiclient::get_operations(client)
-
-
+ops <- rapiclient::get_operations(client)
 
 }
 \seealso{
