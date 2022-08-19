@@ -52,8 +52,8 @@ Dataset <- R6::R6Class(
             self$aggregate_by <- aggregate_by
         },
         run_pipeline = function() {
-            self$save()$start_processing()$wait_until_ready()$download()$extract()
-            return(self)
+            selist <- self$save()$start_processing()$wait_until_ready()$download()$extract()$create_summarized_experiment_from_extract()
+            return(selist)
         },
         save = function() {
             body <- list()
@@ -123,9 +123,13 @@ Dataset <- R6::R6Class(
                 httr::GET(
                     private$download_url,
                     httr::progress(),
-                    httr::write_disk(file.path(base_path, paste0(self$id, ".zip")))
+                    httr::write_disk(file.path(
+                        base_path, paste0(self$id, ".zip")
+                    ))
                 )
-                private$local_file <- file.path(base_path, paste0(self$id, ".zip"))
+                private$local_file <- file.path(
+                    base_path, paste0(self$id, ".zip")
+                )
             }
             invisible(self)
         },
@@ -134,7 +138,14 @@ Dataset <- R6::R6Class(
             if (private$is_processed & !is.null(private$download_url)) {
                 unzip(private$local_file, exdir = extract_directory)
                 private$extract_directory <- extract_directory
+            } else {
+                stop("Dataset is not ready to be extracted")
             }
+            invisible(self)
+        },
+        create_summarized_experiment_from_extract = function() {
+            selist <- dataset_loader(private$extract_directory)
+            return(selist)
         }
     ),
     private = list(

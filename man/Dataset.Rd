@@ -41,6 +41,7 @@ P$hair
 \item \href{#method-Dataset-wait_until_ready}{\code{Dataset$wait_until_ready()}}
 \item \href{#method-Dataset-download}{\code{Dataset$download()}}
 \item \href{#method-Dataset-extract}{\code{Dataset$extract()}}
+\item \href{#method-Dataset-create_summarized_experiment_from_extract}{\code{Dataset$create_summarized_experiment_from_extract()}}
 \item \href{#method-Dataset-clone}{\code{Dataset$clone()}}
 }
 }
@@ -161,6 +162,15 @@ P$hair
 \subsection{Method \code{extract()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Dataset$extract(base_path = ".")}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-Dataset-create_summarized_experiment_from_extract"></a>}}
+\if{latex}{\out{\hypertarget{method-Dataset-create_summarized_experiment_from_extract}{}}}
+\subsection{Method \code{create_summarized_experiment_from_extract()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Dataset$create_summarized_experiment_from_extract()}\if{html}{\out{</div>}}
 }
 
 }
