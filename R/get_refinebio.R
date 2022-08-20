@@ -17,9 +17,15 @@
 #' }
 #'
 #' @export
-get_refinebio <- function(studies, email_address, quantile_normalize = NULL,
+get_refinebio <- function(studies, email_address = get_email(require_set = TRUE), quantile_normalize = NULL,
                           quant_sf_only = NULL, svd_algorithm = NULL,
                           scale_by = NULL, aggregate_by = NULL) {
+    # TODO: #9 Refactor email assignment to a separate config functionality.
+    if (is.null(email_address)) {
+        email_address <- get_email(require_set = TRUE)
+    } else {
+        set_email(email_address)
+    }
     dataset <- Dataset$new(studies, email_address, quantile_normalize, quant_sf_only, svd_algorithm, scale_by, aggregate_by)
     dataset$save()$start_processing()$wait_until_ready()$download()$extract()$create_summarized_experiment_from_extract()
 }
