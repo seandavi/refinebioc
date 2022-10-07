@@ -39,7 +39,7 @@ Dataset <- R6::R6Class(
         #' of experiments or studies to include in the dataset (eg., GSE346126)
         #'
         #' @return A new [RefineBio::Dataset$new()] object.
-        initialize = function(studies, email_address, quantile_normalize = NULL,
+        initialize = function(studies, email_address = NULL, quantile_normalize = NULL,
                               quant_sf_only = NULL, svd_algorithm = NULL,
                               scale_by = NULL, aggregate_by = NULL) {
             self$id <- NULL
@@ -48,7 +48,6 @@ Dataset <- R6::R6Class(
             self$quant_sf_only <- quant_sf_only
             self$svd_algorithm <- svd_algorithm
             self$scale_by <- scale_by
-            self$email_address <- email_address
             self$aggregate_by <- aggregate_by
         },
         run_pipeline = function() {
@@ -58,7 +57,7 @@ Dataset <- R6::R6Class(
         save = function() {
             body <- list()
             body$data <- self$data
-            body$email_address <- jsonlite::unbox(self$email_address)
+            body$email_address <- jsonlite::unbox(get_email(require_set = TRUE))
             transfer_categories <- c(
                 "aggregate_by",
                 "scale_by",
@@ -71,10 +70,9 @@ Dataset <- R6::R6Class(
             )
             for (i in transfer_categories) {
                 if (!is.null(private[[i]])) {
-                    body[[i]] <- unbox(private[[i]])
+                    body[[i]] <- jsonlite::unbox(private[[i]])
                 }
             }
-            print(body)
             if (!is.null(self$id)) {
                 response <- put_by_endpoint(
                     paste0("/dataset/", self$id, "/"),

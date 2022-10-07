@@ -1,7 +1,7 @@
 Package: RefineBio
 Type: Package
 Title: The bridge between refine.bio and Bioconductor
-Version: 0.4.2
+Version: 0.5.0
 Authors@R: 
   c(person(given = "Alex",
            family = "Ho",
@@ -14,11 +14,17 @@ Authors@R:
            comment = c(ORCID = "0000-0002-8991-6458")))
 Description: More about what it does (maybe more than one line)
     Use four spaces when indenting paragraphs within the Description.
+Depends: SummarizedExperiment
 Imports: httr, jsonlite, rapiclient, R6
-Suggests: pkgdown, rmarkdown, styler
+Suggests: 
+    pkgdown,
+    rmarkdown,
+    styler,
+    testthat (>= 3.0.0)
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.0
 URL: https://seandavi.github.io/RefineBio
+Config/testthat/edition: 3

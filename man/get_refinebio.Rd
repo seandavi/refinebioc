@@ -6,7 +6,7 @@
 \usage{
 get_refinebio(
   studies,
-  email_address,
+  email_address = NULL,
   quantile_normalize = NULL,
   quant_sf_only = NULL,
   svd_algorithm = NULL,

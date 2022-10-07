@@ -34,10 +34,7 @@
 
 .make_func_call <- function(opdef, export = TRUE) {
     vals <- ""
-    if (export) {
-        vals <- "#' @export"
-    }
-    vals <- c(vals, sprintf("rb_%s <- function(", opdef$operationId))
+    vals <- c(vals, sprintf("rb_%s = function(", opdef$operationId))
     param_lines <- sapply(opdef$parameters, function(p) {
         if (!"required" %in% names(p)) {
             p$required <- FALSE
@@ -56,12 +53,33 @@
     vals
 }
 
-make_doc_from_operation <- function(api, operation) {
-    defs <- get_operation_definitions(api)
-    opdef <- defs[[operation]]
+make_doc_from_operation <- function(operation) {
+    opdef <- operation
+
     vals <- .make_title(opdef)
     vals <- c(vals, .make_params(opdef))
     vals <- c(vals, .make_family(opdef))
     vals <- c(vals, .make_func_call(opdef))
-    paste(vals, collapse = "\n")
+    paste0(vals, collapse = "\n", sep = "")
 }
+
+make_r6_client_template <- function() {
+    api <- rapiclient::get_api("https://api.refine.bio/v1/")
+    ops <- rapiclient::get_operation_definitions(api)
+    ops2 <- ops[!grepl("read$", names(ops))]
+    ops2 <- ops2[!grepl("about", names(ops2))]
+    ops_funcs <- sapply(ops2, make_doc_from_operation)
+    func_list_as_text <- paste(ops_funcs, collapse = ",\n")
+    body <- paste0(c(.class_header, func_list_as_text, .class_footer), collapse = "\n")
+    r6_text <- styler::style_text(body)
+    r6_text
+}
+
+.class_header <- "#' The entrypoint for the RefineBio API
+#'
+#' Here we start
+RefineBioClient <- R6::R6Class(
+    \"RefineBioClient\",
+    public = list("
+
+.class_footer <- "))"

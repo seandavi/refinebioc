@@ -1,219 +1,77 @@
----
-title: The RefineBio Package
-output:
-    rmarkdown::html_document:
-        keep_md: true
-        df_print: tibble
----
+# refine.bio Aggregated Dataset
 
-# RefineBio
+This is a refine.bio dataset.
 
-This package provides the bridge between Bioconductor and the vast, 
-homogeneously-processed transcriptomic
-data from [refine.bio](https://www.refine.bio).
+## Contents
 
+This download includes gene expression matrices and experiment and sample metadata for the samples that you selected for download.
 
-Cite the refine.bio project as:
+* The `aggregated_metadata.json` file contains information about the options you selected for download.
+Specifically, the `aggregate_by` and `scale_by` fields note how the samples are grouped into gene expression matrices and how the gene expression data values were transformed, respectively.
+The `quantile_normalized` fields notes whether or not quantile normalization was performed.
+Currently, we only support skipping quantile normalization for RNA-seq experiments when aggregating by experiment on the web interface.
 
-> Casey S. Greene, Dongbo Hu, Richard W. W. Jones, Stephanie Liu, David S. Mejia, Rob Patro, Stephen R. Piccolo, Ariel Rodriguez Romero, Hirak Sarkar, Candace L. Savonen, Jaclyn N. Taroni, William E. Vauclain, Deepashree Venkatesh Prasad, Kurt G. Wheeler. refine.bio: a resource of uniformly processed publicly available gene expression datasets. URL: https://www.refine.bio
+* Individual gene expression matrices and their corresponding sample metadata files are in their own directories.
 
+* Gene expression matrices are the tab-separated value (TSV) files named by the experiment accession number (if aggregated by experiment) or species name (if aggregated by species).
+Note that samples are _columns_ and rows are _genes_ or _features_.
+This pattern is consistent with the input for many programs specifically designed for working with high-throughput gene expression data but may be transposed from what other machine learning libraries are expecting.
 
-## Status
+* Sample metadata (e.g. disease vs. control labels) are contained in TSV files with `metadata` in the filename as well as any JSON files.
+We apply light harmonization to some sample metadata fields, which are denoted by `refinebio_` (`refinebio_annotations` is an exception).
+The contents of a sample's `refinebio_annotations` field include the submitter-supplied sample metadata.
 
-This project is undergoing active development and not meant for general use.
+* Experiment metadata (e.g., experiment title and description) are contained in JSON files with `metadata` in the filename.
 
-## Installation
-
-
-```r
-install.packages('BiocManager')
-BiocManager::install('seandavi/RefineBio')
-```
+Please see [our documentation](https://refinebio-docs.readthedocs.io/) for more details.
 
 ## Usage
 
-### Basic search
+The gene expression matrix TSV and JSON files can be read in, manipulated, or parsed with standard functions or libraries in the language of your choice.
+Below are some code snippets to help you import the data into R or Python and examine it.
 
+### Reading TSV Files
 
-```r
-library(RefineBio)
-search_results = rb_search_list()
-search_results$count
-```
+Here's an example reading a gene expression TSV (`GSE11111.tsv`) into R as a data.frame with base R:
 
 ```
-## [1] 62245
+expression_df <- read.delim("GSE11111.tsv", header = TRUE,
+							row.names = 1, stringsAsFactors = FALSE)
 ```
 
-```r
-head(search_results$results)
-```
+### Reading JSON Files
+
+#### R
+
+The `rjson` R package allows us to read a metadata JSON file (`aggregated_metadata.json`) into R as a list:
 
 ```
-## # A tibble: 6 × 21
-##      id title      publication_title    description    technology accession_code
-##   <int> <chr>      <chr>                <chr>          <chr>      <chr>         
-## 1 52090 Shared an… Shared and distinct… Neocortex con… RNA-SEQ    SRP150473     
-## 2 51049 Transcrip… Conserved propertie… RNA sequencin… RNA-SEQ    SRP118985     
-## 3 47744 In vivo m… Broadly neutralizin… Dengue virus … RNA-SEQ    SRP152576     
-## 4 67685 Drug-indu… The NCI Transcripti… To identify p… MICROARRAY GSE116436     
-## 5 50699 Single-ce… Classes and continu… We  studied  … RNA-SEQ    SRP109000     
-## 6 51542 Single ce… Diversity of Intern… In order to i… RNA-SEQ    SRP124669     
-## # … with 15 more variables: alternate_accession_code <chr>,
-## #   submitter_institution <chr>, has_publication <lgl>, publication_doi <chr>,
-## #   publication_authors <list>, sample_metadata_fields <list>,
-## #   platform_names <list>, platform_accession_codes <list>,
-## #   organism_names <list>, downloadable_organism_names <list>, pubmed_id <chr>,
-## #   num_total_samples <int>, num_processed_samples <int>,
-## #   num_downloadable_samples <int>, source_first_published <chr>
+library(rjson)
+metadata_list <- fromJSON(file = "aggregated_metadata.json")
 ```
 
-```r
-lapply(search_results$facets,head)
-```
+#### Python
+
+In Python, we can read in the metadata JSON like so:
 
 ```
-## $has_publication
-##   category  count
-## 1    false 721263
-## 2     true 251865
-## 
-## $downloadable_organism_names
-##                  category  count
-## 1            HOMO_SAPIENS 521539
-## 2            MUS_MUSCULUS 292681
-## 4       RATTUS_NORVEGICUS  39311
-## 7             DANIO_RERIO  28598
-## 3    ARABIDOPSIS_THALIANA  23999
-## 5 DROSOPHILA_MELANOGASTER  17239
-## 
-## $platform_accession_codes
-##             category  count
-## 3        hgu133plus2 146159
-## 2  IlluminaHiSeq2500 142474
-## 1  IlluminaHiSeq2000 125755
-## 4          mouse4302  59093
-## 12           hgu133a  50743
-## 5         NextSeq500  48894
-## 
-## $technology
-##     category  count
-## 1 microarray 609303
-## 2    rna-seq 350551
-## 3    unknown   1200
+import json
+with open('aggregated_metadata.json', 'r') as jsonfile:
+    data = json.load(jsonfile)
+print(data)
 ```
 
-### Available Organisms
+For example R workflows, such as clustering of gene expression data, please see [our repository of example uses](https://github.com/AlexsLemonade/refinebio-examples).
 
+## Contact
 
-```r
-orgs = rb_organisms_list()
-head(orgs$results)
-```
+If you identify issues with this download, please [file an issue on GitHub](https://github.com/AlexsLemonade/refinebio/issues).
+If you would prefer to report issues via e-mail, you can also email [requests@ccdatalab.org](mailto:requests@ccdatalab.org).
 
-```
-## # A tibble: 6 × 4
-##   name                 taxonomy_id has_compendia has_quantfile_compendia
-##   <chr>                      <int> <lgl>         <lgl>                  
-## 1 CIONA_INTESTINALIS          7719 NA            NA                     
-## 2 MUS_PAHARI                 10093 FALSE         TRUE                   
-## 3 NOTAMACROPUS_EUGENII        9315 FALSE         TRUE                   
-## 4 TAENIOPYGIA_GUTTATA        59729 NA            NA                     
-## 5 PETROMYZON_MARINUS          7757 NA            NA                     
-## 6 ANAS_PLATYRHYNCHOS          8839 NA            NA
-```
+## Citing refine.bio
 
-### Available Platforms
+Please use the following:
 
+Casey S. Greene, Dongbo Hu, Richard W. W. Jones, Stephanie Liu, David S. Mejia, Rob Patro, Stephen R. Piccolo, Ariel Rodriguez Romero, Hirak Sarkar, Candace L. Savonen, Jaclyn N. Taroni, William E. Vauclain, Deepashree Venkatesh Prasad, Kurt G. Wheeler. **refine.bio: a resource of uniformly processed publicly available gene expression datasets.** URL: https://www.refine.bio
 
-```r
-plats = rb_platforms_list()
-head(plats)
-```
-
-```
-## # A tibble: 6 × 2
-##   platform_accession_code  platform_name                                        
-##   <chr>                    <chr>                                                
-## 1 IonTorrentS5             Ion Torrent S5                                       
-## 2 ovigene10st              [OviGene-1_0-st] Ovine Gene 1.1 ST Array             
-## 3 GPL4861                  Swegene Human 27K RAP (positions from file)          
-## 4 Illumina_MouseRef-8_v2.0 Illumina MouseRef-8 v2.0 expression beadchip (ILMN_S…
-## 5 GPL16365                 Candida albicans tiling ChIP array                   
-## 6 GPL16275                 Agilent-035430 mouse miRNA array (miRNA_107_Sep09 mi…
-```
-
-```r
-dim(plats)
-```
-
-```
-## [1] 504   2
-```
-
-
-## For developers: the low level API 
-
-
-```r
-library(RefineBio)
-client = rb_get_client()
-ops = rapiclient::get_operations(client)
-names(ops)
-```
-
-```
-##  [1] "compendia_list"                 "compendia_read"                
-##  [3] "computational_results_list"     "computational_results_read"    
-##  [5] "computed_files_list"            "computed_files_read"           
-##  [7] "dataset_create"                 "dataset_read"                  
-##  [9] "dataset_update"                 "experiments_list"              
-## [11] "experiments_read"               "institutions_list"             
-## [13] "jobs_downloader_list"           "jobs_downloader_read"          
-## [15] "jobs_processor_list"            "jobs_processor_read"           
-## [17] "jobs_survey_list"               "jobs_survey_read"              
-## [19] "organisms_list"                 "organisms_read"                
-## [21] "original_files_list"            "original_files_read"           
-## [23] "platforms_list"                 "processors_list"               
-## [25] "processors_read"                "qn_targets_list"               
-## [27] "qn_targets_read"                "samples_list"                  
-## [29] "samples_read"                   "search_list"                   
-## [31] "stats-about_list"               "stats_list"                    
-## [33] "stats_failures_downloader_list" "stats_failures_processor_list" 
-## [35] "token_create"                   "token_read"                    
-## [37] "token_update"                   "transcriptome_indices_list"    
-## [39] "transcriptome_indices_read"
-```
-
-```r
-print(ops$qn_targets_read)
-```
-
-```
-## qn_targets_read 
-##  
-## Description:
-##   Get a detailed view of the Quantile Normalization file for an
-##   organism.
-## 
-## Parameters:
-##   organism_name (string)
-##     Eg `DANIO_RERIO`, `MUS_MUSCULUS`
-```
-
-# Roadmap
-
-- [x] Basic API endpoints
-  - [x] Automated mapping to R objects
-  - [ ] s3 classes and methods for R response objects (subclass of list, basically)
-- [x] Low-level [rapiclient-based](https://github.com/bergant/rapiclient) client
-- [x] R documentation templated from openapi docs
-- [x] Response handling for list and data.frame response
-- [ ] Token handling to allow downloads
-- [ ] File download capability
-- [ ] Metadata with file downloads
-- [ ] Import of data into R/Biocondutor objects
-- [ ] Vignettes
-  - [ ] R-based API
-  - [ ] rapiclient-based API
-  - [ ] common workflows
+_Note that the contributor list is in alphabetical order as we prepare a manuscript for submission._
