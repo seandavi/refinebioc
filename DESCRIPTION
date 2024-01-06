@@ -5,17 +5,17 @@ Version: 0.5.0
 Authors@R: 
   c(person(given = "Alex",
            family = "Ho",
-           role = c("aut", "cre"),
+           role = c("aut"),
            email = "alexander.2.ho@cuanschutz.edu"),
     person(given = "Sean",
            family = "Davis",
-           role = "aut",
+           role = c("aut", "cre"),
            email = "seandavi@gmail.com",
            comment = c(ORCID = "0000-0002-8991-6458")))
 Description: More about what it does (maybe more than one line)
     Use four spaces when indenting paragraphs within the Description.
-Depends: SummarizedExperiment
-Imports: httr, jsonlite, rapiclient, R6
+Imports: httr, jsonlite, rapiclient, R6,
+    SummarizedExperiment, readr
 Suggests: 
     pkgdown,
     rmarkdown,
@@ -25,6 +25,6 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.0
+RoxygenNote: 7.2.3
 URL: https://seandavi.github.io/RefineBio
 Config/testthat/edition: 3
