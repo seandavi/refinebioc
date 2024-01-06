@@ -1,3 +1,5 @@
 #' refinebio url
 #'
-.refinebio_url <- "https://api.refine.bio/v1/"
+.refinebio_base <- "https://api.refine.bio/"
+.refinebio_api_version <- "v1/"
+.refinebio_url <- file.path(.refinebio_base, .refinebio_api_version)

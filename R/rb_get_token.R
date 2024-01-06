@@ -13,37 +13,37 @@
 #'
 #' @export
 rb_get_token <- function() {
-    #    if (!.rb_has_agreed_to_tos()) {
-    #        return(NULL)
-    #    }
-    if (!is.null(.rb_environment[["token"]])) {
-        return(.rb_environment[["token"]])
-    }
-    # new token
-    r <- httr::content(httr::POST("https://api.refine.bio", path = "/v1/token/"))
-    # activate
-    r <- httr::content(httr::PUT("https://api.refine.bio",
-        path = sprintf("/v1/token/%s/", r$id),
-        body = list(is_activated = TRUE),
-        encode = "json"
-    ))
-    if (!r$is_activated) {
-        stop("There was a problem obtaining or activating a token")
-    }
-    .rb_environment[["token"]] <- r$id
-    r$id
+  #    if (!.rb_has_agreed_to_tos()) {
+  #        return(NULL)
+  #    }
+  if (!is.null(.rb_environment[["token"]])) {
+    return(.rb_environment[["token"]])
+  }
+  # new token
+  r <- httr::content(httr::POST("https://api.refine.bio", path = "/v1/token/"))
+  # activate
+  r <- httr::content(httr::PUT("https://api.refine.bio",
+    path = sprintf("/v1/token/%s/", r$id),
+    body = list(is_activated = TRUE),
+    encode = "json"
+  ))
+  if (!r$is_activated) {
+    stop("There was a problem obtaining or activating a token")
+  }
+  .rb_environment[["token"]] <- r$id
+  r$id
 }
 
 rb_agree_to_tos <- function(agree = TRUE) {
-    # TODO get TOS and report to user if interactive
-    .rb_environment[["agree"]] <- agree
+  # TODO get TOS and report to user if interactive
+  .rb_environment[["agree"]] <- agree
 }
 
 .rb_has_agreed_to_tos <- function() {
-    if (!is.null(.rb_environment[["agree"]])) {
-        if (.rb_environment[["agree"]]) {
-            return(TRUE)
-        }
+  if (!is.null(.rb_environment[["agree"]])) {
+    if (.rb_environment[["agree"]]) {
+      return(TRUE)
     }
-    FALSE
+  }
+  FALSE
 }
