@@ -1,9 +1,7 @@
 ---
 title: The RefineBio Package
 output:
-    rmarkdown::html_document:
-        keep_md: true
-        df_print: tibble
+  github_document
 ---
 
 
