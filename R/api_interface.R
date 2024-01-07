@@ -26,7 +26,7 @@ make_request <- function(method, url, ...) {
       response$details
     )
     stop(
-      msg,
+      response,
       call. = FALSE
     )
   }
@@ -63,7 +63,7 @@ put_url <- function(url, body = NULL) {
 }
 
 make_url <- function(endpoint) {
-  httr::modify_url(.refinebio_url, path = paste0("v1", endpoint))
+  file.path(.refinebio_url, endpoint)
 }
 
 get_by_endpoint <- function(endpoint, query = NULL) {
