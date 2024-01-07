@@ -2,5 +2,10 @@
 
 export(RefineBioResults)
 export(get_rb_email_address)
+export(rb_experiment_details)
+export(rb_experiment_search)
 export(rb_get_token)
+export(rb_institution_list)
+export(rb_organism_list)
+export(rb_platform_list)
 export(set_rb_email_address)
