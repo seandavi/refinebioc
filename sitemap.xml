@@ -16,10 +16,25 @@
     <loc>https://seandavi.github.io/RefineBio/index.html</loc>
   </url>
   <url>
+    <loc>https://seandavi.github.io/RefineBio/reference/RefineBioResults.html</loc>
+  </url>
+  <url>
+    <loc>https://seandavi.github.io/RefineBio/reference/dataset_loader.html</loc>
+  </url>
+  <url>
+    <loc>https://seandavi.github.io/RefineBio/reference/dot-get_rb_email_address.html</loc>
+  </url>
+  <url>
     <loc>https://seandavi.github.io/RefineBio/reference/dot-process_json_result.html</loc>
   </url>
   <url>
-    <loc>https://seandavi.github.io/RefineBio/reference/dot-refinebio_url.html</loc>
+    <loc>https://seandavi.github.io/RefineBio/reference/dot-refinebio_base.html</loc>
+  </url>
+  <url>
+    <loc>https://seandavi.github.io/RefineBio/reference/flatten_list.html</loc>
+  </url>
+  <url>
+    <loc>https://seandavi.github.io/RefineBio/reference/get_rb_email_address.html</loc>
   </url>
   <url>
     <loc>https://seandavi.github.io/RefineBio/reference/index.html</loc>
@@ -28,111 +43,27 @@
     <loc>https://seandavi.github.io/RefineBio/reference/rb_compendia_list.html</loc>
   </url>
   <url>
-    <loc>https://seandavi.github.io/RefineBio/reference/rb_compendia_read.html</loc>
+    <loc>https://seandavi.github.io/RefineBio/reference/rb_entity_list.html</loc>
   </url>
   <url>
-    <loc>https://seandavi.github.io/RefineBio/reference/rb_computational_results_list.html</loc>
+    <loc>https://seandavi.github.io/RefineBio/reference/rb_experiment_details.html</loc>
   </url>
   <url>
-    <loc>https://seandavi.github.io/RefineBio/reference/rb_computational_results_read.html</loc>
-  </url>
-  <url>
-    <loc>https://seandavi.github.io/RefineBio/reference/rb_computed_files_list.html</loc>
-  </url>
-  <url>
-    <loc>https://seandavi.github.io/RefineBio/reference/rb_computed_files_read.html</loc>
-  </url>
-  <url>
-    <loc>https://seandavi.github.io/RefineBio/reference/rb_dataset_create.html</loc>
-  </url>
-  <url>
-    <loc>https://seandavi.github.io/RefineBio/reference/rb_dataset_read.html</loc>
-  </url>
-  <url>
-    <loc>https://seandavi.github.io/RefineBio/reference/rb_dataset_update.html</loc>
-  </url>
-  <url>
-    <loc>https://seandavi.github.io/RefineBio/reference/rb_experiments_list.html</loc>
-  </url>
-  <url>
-    <loc>https://seandavi.github.io/RefineBio/reference/rb_experiments_read.html</loc>
-  </url>
-  <url>
-    <loc>https://seandavi.github.io/RefineBio/reference/rb_get_client.html</loc>
+    <loc>https://seandavi.github.io/RefineBio/reference/rb_experiment_search.html</loc>
   </url>
   <url>
     <loc>https://seandavi.github.io/RefineBio/reference/rb_get_token.html</loc>
   </url>
   <url>
-    <loc>https://seandavi.github.io/RefineBio/reference/rb_institutions_list.html</loc>
+    <loc>https://seandavi.github.io/RefineBio/reference/rb_institution_list.html</loc>
   </url>
   <url>
-    <loc>https://seandavi.github.io/RefineBio/reference/rb_jobs_downloader_list.html</loc>
+    <loc>https://seandavi.github.io/RefineBio/reference/rb_organism_list.html</loc>
   </url>
   <url>
-    <loc>https://seandavi.github.io/RefineBio/reference/rb_jobs_downloader_read.html</loc>
+    <loc>https://seandavi.github.io/RefineBio/reference/rb_platform_list.html</loc>
   </url>
   <url>
-    <loc>https://seandavi.github.io/RefineBio/reference/rb_jobs_processor_list.html</loc>
-  </url>
-  <url>
-    <loc>https://seandavi.github.io/RefineBio/reference/rb_jobs_processor_read.html</loc>
-  </url>
-  <url>
-    <loc>https://seandavi.github.io/RefineBio/reference/rb_jobs_survey_list.html</loc>
-  </url>
-  <url>
-    <loc>https://seandavi.github.io/RefineBio/reference/rb_jobs_survey_read.html</loc>
-  </url>
-  <url>
-    <loc>https://seandavi.github.io/RefineBio/reference/rb_organisms_list.html</loc>
-  </url>
-  <url>
-    <loc>https://seandavi.github.io/RefineBio/reference/rb_organisms_read.html</loc>
-  </url>
-  <url>
-    <loc>https://seandavi.github.io/RefineBio/reference/rb_original_files_list.html</loc>
-  </url>
-  <url>
-    <loc>https://seandavi.github.io/RefineBio/reference/rb_original_files_read.html</loc>
-  </url>
-  <url>
-    <loc>https://seandavi.github.io/RefineBio/reference/rb_platforms_list.html</loc>
-  </url>
-  <url>
-    <loc>https://seandavi.github.io/RefineBio/reference/rb_processors_list.html</loc>
-  </url>
-  <url>
-    <loc>https://seandavi.github.io/RefineBio/reference/rb_processors_read.html</loc>
-  </url>
-  <url>
-    <loc>https://seandavi.github.io/RefineBio/reference/rb_qn_targets_list.html</loc>
-  </url>
-  <url>
-    <loc>https://seandavi.github.io/RefineBio/reference/rb_qn_targets_read.html</loc>
-  </url>
-  <url>
-    <loc>https://seandavi.github.io/RefineBio/reference/rb_samples_list.html</loc>
-  </url>
-  <url>
-    <loc>https://seandavi.github.io/RefineBio/reference/rb_samples_read.html</loc>
-  </url>
-  <url>
-    <loc>https://seandavi.github.io/RefineBio/reference/rb_search_list.html</loc>
-  </url>
-  <url>
-    <loc>https://seandavi.github.io/RefineBio/reference/rb_stats_failures_downloader_list.html</loc>
-  </url>
-  <url>
-    <loc>https://seandavi.github.io/RefineBio/reference/rb_stats_failures_processor_list.html</loc>
-  </url>
-  <url>
-    <loc>https://seandavi.github.io/RefineBio/reference/rb_stats_list.html</loc>
-  </url>
-  <url>
-    <loc>https://seandavi.github.io/RefineBio/reference/rb_transcriptome_indices_list.html</loc>
-  </url>
-  <url>
-    <loc>https://seandavi.github.io/RefineBio/reference/rb_transcriptome_indices_read.html</loc>
+    <loc>https://seandavi.github.io/RefineBio/reference/set_rb_email_address.html</loc>
   </url>
 </urlset>
