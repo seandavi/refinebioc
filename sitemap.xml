@@ -34,6 +34,9 @@
     <loc>https://seandavi.github.io/RefineBio/reference/rb_browse_dataset.html</loc>
   </url>
   <url>
+    <loc>https://seandavi.github.io/RefineBio/reference/rb_cached_datasets.html</loc>
+  </url>
+  <url>
     <loc>https://seandavi.github.io/RefineBio/reference/rb_compendia_list.html</loc>
   </url>
   <url>
@@ -64,6 +67,9 @@
     <loc>https://seandavi.github.io/RefineBio/reference/rb_experiment_search.html</loc>
   </url>
   <url>
+    <loc>https://seandavi.github.io/RefineBio/reference/rb_get_experiment.html</loc>
+  </url>
+  <url>
     <loc>https://seandavi.github.io/RefineBio/reference/rb_get_token.html</loc>
   </url>
   <url>
@@ -77,6 +83,9 @@
   </url>
   <url>
     <loc>https://seandavi.github.io/RefineBio/reference/rb_set_email_address.html</loc>
+  </url>
+  <url>
+    <loc>https://seandavi.github.io/RefineBio/reference/rb_sharing_link.html</loc>
   </url>
   <url>
     <loc>https://seandavi.github.io/RefineBio/reference/rb_wait_for_dataset.html</loc>
