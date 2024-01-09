@@ -105,23 +105,35 @@ experiment.</p>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">expt_details</span> <span class="op">&lt;-</span> <span class="fu">rb_experiment</span><span class="op">(</span><span class="st">"SRP150473"</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in rb_experiment("SRP150473"):</span> could not find function "rb_experiment"</span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">expt_details</span> <span class="op">&lt;-</span> <span class="fu">rb_experiment_details</span><span class="op">(</span><span class="st">"SRP150473"</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">expt_details</span><span class="op">$</span><span class="va">accession_code</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in eval(expr, envir, enclos):</span> object 'expt_details' not found</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "SRP150473"</span>
 <span class="r-in"><span><span class="va">expt_details</span><span class="op">$</span><span class="va">source_database</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in eval(expr, envir, enclos):</span> object 'expt_details' not found</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "SRA"</span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">expt_details</span><span class="op">$</span><span class="va">samples</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in eval(expr, envir, enclos):</span> object 'expt_details' not found</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   accession_code       platform_name                         pretty_platform</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1     SRR7311348 Illumina HiSeq 2500 Illumina HiSeq 2500 (IlluminaHiSeq2500)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2     SRR7311375 Illumina HiSeq 2500 Illumina HiSeq 2500 (IlluminaHiSeq2500)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3     SRR7311321 Illumina HiSeq 2500 Illumina HiSeq 2500 (IlluminaHiSeq2500)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4     SRR7311322 Illumina HiSeq 2500 Illumina HiSeq 2500 (IlluminaHiSeq2500)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5     SRR7311326 Illumina HiSeq 2500 Illumina HiSeq 2500 (IlluminaHiSeq2500)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6     SRR7311338 Illumina HiSeq 2500 Illumina HiSeq 2500 (IlluminaHiSeq2500)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   technology is_processed is_unable_to_be_processed</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1    RNA-SEQ        FALSE                     FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2    RNA-SEQ        FALSE                     FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3    RNA-SEQ        FALSE                     FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4    RNA-SEQ        FALSE                     FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5    RNA-SEQ        FALSE                     FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6    RNA-SEQ        FALSE                     FALSE</span>
 <span class="r-in"><span><span class="va">expt_details</span><span class="op">$</span><span class="va">sample_metadata</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in eval(expr, envir, enclos):</span> object 'expt_details' not found</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "specimen_part" "disease"       "subject"      </span>
 <span class="r-in"><span><span class="va">expt_details</span><span class="op">$</span><span class="va">num_total_samples</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in eval(expr, envir, enclos):</span> object 'expt_details' not found</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 28706</span>
 <span class="r-in"><span><span class="va">expt_details</span><span class="op">$</span><span class="va">num_processed_samples</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in eval(expr, envir, enclos):</span> object 'expt_details' not found</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0</span>
 <span class="r-in"><span><span class="va">expt_details</span><span class="op">$</span><span class="va">num_downloadable_samples</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in eval(expr, envir, enclos):</span> object 'expt_details' not found</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
