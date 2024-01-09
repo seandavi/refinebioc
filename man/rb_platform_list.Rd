@@ -6,6 +6,9 @@
 \usage{
 rb_platform_list()
 }
+\value{
+\code{data.frame} All available platforms.
+}
 \description{
 All available platforms in refine.bio
 }
@@ -14,3 +17,14 @@ platforms <- rb_platform_list()
 head(platforms)
 
 }
+\seealso{
+Other refine.bio API: 
+\code{\link{rb_compendia_list}()},
+\code{\link{rb_entity_list}()},
+\code{\link{rb_institution_list}()},
+\code{\link{rb_organism_list}()}
+}
+\author{
+Sean Davis \href{mailto:seandavi@gmail.com}{seandavi@gmail.com}
+}
+\concept{refine.bio API}

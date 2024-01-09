@@ -3,7 +3,7 @@ output:
   github_document
 ---
 
-## The refinebioc package
+# RefineBio
 
 This package provides the bridge between Bioconductor and the vast, 
 homogeneously-processed transcriptomic
@@ -53,3 +53,20 @@ head(plats)
 dim(plats)
 ```
 
+## Developer checklist
+
+- [ ]  Add tests
+- [ ]  Run `devtools::test()`
+- [ ]  Run `devtools::check()`
+- [ ]  Run `devtools::document()`
+- [ ]  Run `devtools::build()`
+- [ ]  Update `READMERmd`
+- [ ]  Run `devtools::build_readme()`
+- [ ]  Update `NEWS.md`
+- [ ]  Update `DESCRIPTION`
+
+### Notes
+
+- We use [`roxygen2`](https://roxygen2.r-lib.org/) for documentation, including for [R6 classes](https://github.com/mlr-org/mlr3/wiki/Roxygen-R6-Guide)
+- We use [`testthat`](https://testthat.r-lib.org/) for testing
+- We use the [tidyverse style for the NEWS.md file](https://style.tidyverse.org/news.html)

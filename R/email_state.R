@@ -1,7 +1,7 @@
 #' internal function to get the email address for the current session
 #'
 #' @keywords internal
-.get_rb_email_address <- function() {
+.rb_get_email_address <- function() {
   option_email <- getOption("RB_EMAIL_ADDRESS", NA)
   if (!is.na(option_email)) {
     return(option_email)
@@ -10,13 +10,14 @@
   if (!is.na(env_email)) {
     return(env_email)
   }
+  email <- whomai::email_address()
+  if (email != "" && !is.na(email)) {
+    return(email)
+  }
   return(NA)
 }
 
 #' get the email address for the current session
-#'
-#' @param required logical, whether to throw an
-#' error if the email address is not set
 #'
 #' @examples
 #' \dontrun{
@@ -24,12 +25,12 @@
 #' }
 #'
 #' @export
-get_rb_email_address <- function(required = TRUE) {
-  email_address <- .get_rb_email_address()
-  if (is.na(email_address) && required) {
+rb_email_address <- function() {
+  email_address <- .rb_get_email_address()
+  if (is.na(email_address)) {
     stop(paste(
       "email address is not set in environment or options.",
-      " Use set_rb_email_address() to set it."
+      "Use set_rb_email_address() to set it."
     ))
   }
   return(email_address)
@@ -45,7 +46,7 @@ get_rb_email_address <- function(required = TRUE) {
 #' }
 #'
 #' @export
-set_rb_email_address <- function(email_address) {
+rb_set_email_address <- function(email_address) {
   if (!is.character(email_address)) {
     stop("email_address must be a character string")
   }

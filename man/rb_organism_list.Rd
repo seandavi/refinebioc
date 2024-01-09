@@ -6,6 +6,9 @@
 \usage{
 rb_organism_list()
 }
+\value{
+\code{data.frame} All available organisms.
+}
 \description{
 All available organisms in refine.bio
 }
@@ -14,3 +17,14 @@ orgs <- rb_organism_list()
 head(orgs)
 
 }
+\seealso{
+Other refine.bio API: 
+\code{\link{rb_compendia_list}()},
+\code{\link{rb_entity_list}()},
+\code{\link{rb_institution_list}()},
+\code{\link{rb_platform_list}()}
+}
+\author{
+Sean Davis \href{mailto:seandavi@gmail.com}{seandavi@gmail.com}
+}
+\concept{refine.bio API}

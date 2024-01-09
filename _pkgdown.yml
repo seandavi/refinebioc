@@ -1,6 +1,6 @@
 url: https://seandavi.github.io/RefineBio/
 template:
   bootstrap: 5
-  bootswatch: united
-  theme: github-light
-
+navbar:
+  structure:
+    right: [search, github]

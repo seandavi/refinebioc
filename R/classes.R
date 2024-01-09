@@ -10,10 +10,22 @@
   return(dataset_id)
 }
 
+
+#' Get the state of a dataset
+#'
+#' This function simply calls the API to get the state of a dataset.
+#'
+#' @param dataset The dataset ID or `rb_dataset` object
+#'
+#' @return A `rb_dataset` object, now with updated state.
 rb_dataset_update_state <- function(dataset) {
   dataset_id <- .dataset_id_from_args(dataset)
   response <- get_by_endpoint(sprintf("dataset/%s/", dataset_id))
-  return(response$results)
+
+  ret <- structure(response$results,
+    class = c("rb_dataset", class(response$results))
+  )
+  return(ret)
 }
 
 rb_dataset_is_processed <- function(dataset) {
@@ -36,56 +48,111 @@ rb_dataset_is_available <- function(dataset) {
   return(res$is_available)
 }
 
-
+#' Wait for a dataset to become available
+#'
+#' @param dataset The dataset ID or `rb_dataset` object
+#' @param seconds The number of seconds to wait between checks
+#'
+#' @return The dataset object when it is available
 rb_wait_for_dataset <- function(dataset, seconds = 10) {
+  start_time <- Sys.time()
+  rb_dataset_ensure_started(dataset)
   while (!rb_dataset_is_available(dataset)) {
+    logger::log_info(
+      sprintf(
+        "Waiting for dataset availability (%f seconds elapsed)...",
+        difftime(Sys.time(), start_time, units = "secs")
+      )
+    )
     Sys.sleep(seconds)
   }
-  return(TRUE)
+  return(dataset)
 }
 
-rb_dataset_download <- function(ID, base_path = ".", overwrite = FALSE) {
-  stopifnot(rb_dataset_is_available(ID))
-  if (!overwrite && file.exists(file.path(base_path, paste0(ID, ".zip")))) {
-    return(file.path(base_path, paste0(ID, ".zip")))
+#' Download an available dataset from refine.bio
+#'
+#' Note that the dataset must be available before it can be downloaded.
+#'
+#' @param ID The dataset ID
+#' @param base_path The path to the directory where the dataset will be
+#' downloaded and extracted.
+#' @param overwrite If TRUE, overwrite the cached result.
+#'
+#' @return The path to the downloaded zipfile.
+rb_dataset_download <- function(
+    dataset,
+    base_path = rb_data_path(),
+    overwrite = FALSE) {
+  dataset_id <- .dataset_id_from_args(dataset)
+  stopifnot(rb_dataset_is_available(dataset_id))
+  if (!overwrite && file.exists(file.path(
+    base_path, paste0(dataset_id, ".zip")
+  ))) {
+    return(file.path(base_path, paste0(dataset_id, ".zip")))
   }
-  response <- get_by_endpoint(sprintf("dataset/%s/", ID))
+  response <- get_by_endpoint(sprintf("dataset/%s/", dataset_id))
   download_url <- response$results$download_url
   httr::GET(
     download_url,
     httr::progress(),
     httr::write_disk(file.path(
-      base_path, paste0(ID, ".zip")
+      base_path, paste0(dataset_id, ".zip")
     ))
   )
-  return(file.path(base_path, paste0(ID, ".zip")))
+  return(file.path(base_path, paste0(dataset_id, ".zip")))
 }
 
-rb_dataset_extract <- function(ID, base_path = ".", overwrite = FALSE) {
-  if (file.exists(file.path(
-    base_path, ID, "aggregated_metadata.json"
-  )) && !overwrite) {
-    return(file.path(base_path, ID))
-  }
-  zip_file <- rb_dataset_download(ID, base_path)
-  unzip(zip_file, exdir = file.path(base_path, ID), overwrite = TRUE)
-  return(file.path(base_path, ID))
-}
 
-rb_load_dataset <- function(
-    ID, base_path = ".", cache_result = TRUE,
+#' Extract a downloaded dataset zipfile
+#'
+#' @param ID The dataset ID
+#' @param base_path Path to the directory where the zipfile will be extracted.
+#' @param overwrite If TRUE, overwrite the existing directory.
+#'
+#' @return The path to the extracted directory.
+rb_dataset_extract <- function(
+    dataset,
+    base_path = rb_data_path(),
     overwrite = FALSE) {
-  if (!overwrite && file.exists(file.path(base_path, paste0(ID, ".rds")))) {
-    return(readRDS(file.path(base_path, paste0(ID, ".rds"))))
+  dataset_id <- .dataset_id_from_args(dataset)
+  if (file.exists(file.path(
+    base_path, dataset_id, "aggregated_metadata.json"
+  )) && !overwrite) {
+    return(file.path(base_path, dataset_id))
   }
-  dataset_path <- rb_dataset_extract(ID, base_path, overwrite)
-  loaded <- dataset_loader(dataset_path)
-  if (cache_result) {
-    saveRDS(loaded, file = file.path(base_path, paste0(ID, ".rds")))
+  zip_file <- file.path(base_path, paste0(dataset_id, ".zip"))
+  unzip(zip_file, exdir = file.path(base_path, dataset_id), overwrite = overwrite)
+  # TODO: consider gzipping the tsv and json files
+  # The readers will all deal with the gz files just fine.
+  return(file.path(base_path, dataset_id))
+}
+
+#' Load a dataset from a refinebio download
+#'
+#' @param ID The dataset ID
+#' @param base_path The path to the directory where the dataset will be
+#'  downloaded and extracted.
+#' @param cache_result If TRUE, cache the result in the base_path.
+#' @param overwrite If TRUE, overwrite the cached result.
+#'
+#' @return A list of `SummarizedExperiment`s representing the
+#'  experiments in the RefineBio downloaded dataset.
+#'
+#' @export
+rb_dataset_load <- function(
+    dataset, base_path = rb_data_path(), use_caching = TRUE) {
+  dataset_id <- .dataset_id_from_args(dataset)
+  dataset_path <- file.path(base_path, dataset_id)
+  rds_name <- file.path(dataset_path, paste0(dataset_id, ".rds"))
+  if (use_caching && file.exists(rds_name)) {
+    return(readRDS(rds_name))
+  }
+  loaded <- rb_dataset_loader(dataset_path)
+  if (use_caching) {
+    saveRDS(loaded, file = rds_name)
   }
   return(loaded)
 }
-
 
 
 rb_dataset_request <- function(
@@ -96,12 +163,12 @@ rb_dataset_request <- function(
     scale_by = "NONE",
     aggregate_by = "EXPERIMENT",
     notify_me = FALSE,
-    start = TRUE) {
+    start = FALSE) {
   data <- setNames(as.list(rep("ALL", length(studies))), studies)
   body <- list()
   body$data <- data
   body$email_address <- jsonlite::unbox(
-    get_rb_email_address(required = TRUE)
+    rb_email_address()
   )
   body$quant_sf_only <- jsonlite::unbox(quant_sf_only)
   body$quantile_normalize <- jsonlite::unbox(quantile_normalize)
@@ -126,6 +193,34 @@ rb_dataset_request <- function(
   }
   cat(sprintf("\nsample count: %d", length(unlist(x$data))))
   cat(sprintf("\nstudies: %s", names(x$data)))
+}
+
+rb_dataset_ensure_started <- function(dataset) {
+  dataset_id <- .dataset_id_from_args(dataset)
+  logger::log_debug("Ensuring dataset is started: ", dataset_id)
+  current <- rb_dataset_update_state(dataset)
+  if (current$is_processing || current$is_processed) {
+    return(current)
+  }
+  body <- list()
+  body$data <- current$data
+  body$quant_sf_only <- jsonlite::unbox(current$quant_sf_only)
+  body$quantile_normalize <- jsonlite::unbox(current$quantile_normalize)
+  body$svd_algorithm <- jsonlite::unbox(current$svd_algorithm)
+  body$email_address <- jsonlite::unbox(rb_email_address())
+  body$scale_by <- jsonlite::unbox(current$scale_by)
+  body$aggregate_by <- jsonlite::unbox(current$aggregate_by)
+  body$notify_me <- jsonlite::unbox(current$notify_me)
+  body$start <- jsonlite::unbox(TRUE)
+  jbody <- jsonlite::toJSON(body)
+  response <- put_by_endpoint(
+    sprintf("dataset/%s/", dataset_id),
+    body = jbody
+  )
+  ret <- structure(response$results,
+    class = c("rb_dataset", class(response$results))
+  )
+  return(ret)
 }
 
 
