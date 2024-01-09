@@ -47,7 +47,7 @@ experiment, as well as a list of samples that are part of the
 experiment.
 }
 \examples{
-expt_details <- rb_experiment("SRP150473")
+expt_details <- rb_experiment_details("SRP150473")
 
 expt_details$accession_code
 expt_details$source_database

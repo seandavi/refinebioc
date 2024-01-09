@@ -101,7 +101,7 @@ rb_experiment_search <- function(
 #' @param accession_code The accession code of the experiment, e.g. 'SRP150473'
 #'
 #' @examples
-#' expt_details <- rb_experiment("SRP150473")
+#' expt_details <- rb_experiment_details("SRP150473")
 #'
 #' expt_details$accession_code
 #' expt_details$source_database
