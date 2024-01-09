@@ -6,7 +6,7 @@
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
     
 
-    <nav class="navbar fixed-top navbar-dark navbar-expand-lg bg-primary"><div class="container">
+    <nav class="navbar fixed-top navbar-light navbar-expand-lg bg-light"><div class="container">
     
     <a class="navbar-brand me-2" href="../index.html">RefineBio</a>
 
@@ -21,10 +21,19 @@
       <ul class="navbar-nav me-auto"><li class="active nav-item">
   <a class="nav-link" href="../reference/index.html">Reference</a>
 </li>
+<li class="nav-item">
+  <a class="nav-link" href="../news/index.html">Changelog</a>
+</li>
       </ul><form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off"></form>
 
-      <ul class="navbar-nav"></ul></div>
+      <ul class="navbar-nav"><li class="nav-item">
+  <a class="external-link nav-link" href="https://github.com/seandavi/RefineBio/" aria-label="github">
+    <span class="fab fa fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
+      </ul></div>
 
     
   </div>
@@ -32,7 +41,7 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="" class="logo" alt=""><h1>All available organisms in refine.bio</h1>
-      
+      <small class="dont-index">Source: <a href="https://github.com/seandavi/RefineBio/blob/HEAD/R/field_metadata.R" class="external-link"><code>R/field_metadata.R</code></a></small>
       <div class="d-none name"><code>rb_organism_list.Rd</code></div>
     </div>
 
@@ -45,6 +54,24 @@
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">rb_organism_list</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
     </div>
 
+    <div class="section level2">
+    <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
+    
+
+<p><code>data.frame</code> All available organisms.</p>
+    </div>
+    <div class="section level2">
+    <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
+    <div class="dont-index"><p>Other refine.bio API: 
+<code><a href="rb_compendia_list.html">rb_compendia_list</a>()</code>,
+<code><a href="rb_entity_list.html">rb_entity_list</a>()</code>,
+<code><a href="rb_institution_list.html">rb_institution_list</a>()</code>,
+<code><a href="rb_platform_list.html">rb_platform_list</a>()</code></p></div>
+    </div>
+    <div class="section level2">
+    <h2 id="author">Author<a class="anchor" aria-label="anchor" href="#author"></a></h2>
+    <p>Sean Davis <a href="mailto:seandavi@gmail.com">seandavi@gmail.com</a></p>
+    </div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>

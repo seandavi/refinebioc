@@ -6,7 +6,7 @@
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
     
 
-    <nav class="navbar fixed-top navbar-dark navbar-expand-lg bg-primary"><div class="container">
+    <nav class="navbar fixed-top navbar-light navbar-expand-lg bg-light"><div class="container">
     
     <a class="navbar-brand me-2" href="../index.html">RefineBio</a>
 
@@ -21,10 +21,19 @@
       <ul class="navbar-nav me-auto"><li class="active nav-item">
   <a class="nav-link" href="../reference/index.html">Reference</a>
 </li>
+<li class="nav-item">
+  <a class="nav-link" href="../news/index.html">Changelog</a>
+</li>
       </ul><form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off"></form>
 
-      <ul class="navbar-nav"></ul></div>
+      <ul class="navbar-nav"><li class="nav-item">
+  <a class="external-link nav-link" href="https://github.com/seandavi/RefineBio/" aria-label="github">
+    <span class="fab fa fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
+      </ul></div>
 
     
   </div>
@@ -47,29 +56,44 @@
 
       <dl><dt>
           
-          <code><a href="RefineBioResults.html">RefineBioResults</a></code> 
-        </dt>
-        <dd>This is my RefineBioResults class</dd>
-      </dl><dl><dt>
-          
           <code><a href="dot-refinebio_base.html">.refinebio_base</a></code> 
         </dt>
         <dd>refinebio url</dd>
       </dl><dl><dt>
           
-          <code><a href="flatten_list.html">flatten_list()</a></code> 
+          <code><a href="rb_browse_dataset.html">rb_browse_dataset()</a></code> 
         </dt>
-        <dd>Flatten a list</dd>
-      </dl><dl><dt>
-          
-          <code><a href="get_rb_email_address.html">get_rb_email_address()</a></code> 
-        </dt>
-        <dd>get the email address for the current session</dd>
+        <dd>Open a webpage for the given dataset</dd>
       </dl><dl><dt>
           
           <code><a href="rb_compendia_list.html">rb_compendia_list()</a></code> 
         </dt>
         <dd>All available compendia in refine.bio</dd>
+      </dl><dl><dt>
+          
+          <code><a href="rb_dataset_download.html">rb_dataset_download()</a></code> 
+        </dt>
+        <dd>Download an available dataset from refine.bio</dd>
+      </dl><dl><dt>
+          
+          <code><a href="rb_dataset_extract.html">rb_dataset_extract()</a></code> 
+        </dt>
+        <dd>Extract a downloaded dataset zipfile</dd>
+      </dl><dl><dt>
+          
+          <code><a href="rb_dataset_load.html">rb_dataset_load()</a></code> 
+        </dt>
+        <dd>Load a dataset from a refinebio download</dd>
+      </dl><dl><dt>
+          
+          <code><a href="rb_dataset_update_state.html">rb_dataset_update_state()</a></code> 
+        </dt>
+        <dd>Get the state of a dataset</dd>
+      </dl><dl><dt>
+          
+          <code><a href="rb_email_address.html">rb_email_address()</a></code> 
+        </dt>
+        <dd>get the email address for the current session</dd>
       </dl><dl><dt>
           
           <code><a href="rb_experiment_details.html">rb_experiment_details()</a></code> 
@@ -102,9 +126,14 @@
         <dd>All available platforms in refine.bio</dd>
       </dl><dl><dt>
           
-          <code><a href="set_rb_email_address.html">set_rb_email_address()</a></code> 
+          <code><a href="rb_set_email_address.html">rb_set_email_address()</a></code> 
         </dt>
         <dd>set the email address for the current session</dd>
+      </dl><dl><dt>
+          
+          <code><a href="rb_wait_for_dataset.html">rb_wait_for_dataset()</a></code> 
+        </dt>
+        <dd>Wait for a dataset to become available</dd>
       </dl></div>
   </main></div>
 
