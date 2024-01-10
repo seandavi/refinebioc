@@ -9,8 +9,13 @@
 #'
 #' @author Sean Davis <seandavi@gmail.com>
 #'
+#' @examples
+#' \dontrun{
+#' dataset_sharing_link(dataset)
+#' }
+#'
 #' @export
-rb_sharing_link <- function(dataset) {
+dataset_sharing_link <- function(dataset) {
   dataset_id <- .dataset_id_from_args(dataset)
   return(sprintf("https://www.refine.bio/dataset/%s?ref=share", dataset_id))
 }
@@ -25,8 +30,18 @@ rb_sharing_link <- function(dataset) {
 #'
 #' @author Sean Davis <seandavi@gmail.com>
 #'
+#' @return the dataset page URL (invisibly)
+#'
+#' @examples
+#' \dontrun{
+#' dataset_page_browser(dataset)
+#' }
+#'
 #' @export
-rb_browse_dataset <- function(dataset) {
+dataset_page_browser <- function(dataset) {
   dataset_id <- .dataset_id_from_args(dataset)
-  browseURL(sprintf("https://www.refine.bio/dataset/%s", dataset_id))
+  if (interactive() && !Sys.getenv("TESTTHAT") == "true") {
+    browseURL(sprintf("https://www.refine.bio/dataset/%s", dataset_id))
+  }
+  invisible(sprintf("https://www.refine.bio/dataset/%s", dataset_id))
 }
