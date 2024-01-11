@@ -17,6 +17,7 @@ This function returns the path to the local datastore.
 }
 \seealso{
 Other Local datastore operations: 
+\code{\link{datastore_example_path}()},
 \code{\link{datastore_set_path}()}
 }
 \concept{Local datastore operations}

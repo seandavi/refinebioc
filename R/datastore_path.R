@@ -62,3 +62,14 @@ datastore_set_path <- function(path) {
 rb_email_address <- function() {
   return(whoami::email_address())
 }
+
+#' An example datastore
+#'
+#' This is a small datastore that is used for testing.
+#'
+#' @family Local datastore operations
+#'
+#' @export
+datastore_example_path <- function() {
+  return(system.file("testdata/datastore", package = "RefineBio"))
+}

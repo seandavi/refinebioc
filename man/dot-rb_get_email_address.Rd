@@ -7,6 +7,5 @@
 .rb_get_email_address()
 }
 \description{
-internal function to get the email address for the current session
+\if{html}{\figure{mai.png}{options: width="100\%" alt="Figure: mai.png"}}
 }
-\keyword{internal}

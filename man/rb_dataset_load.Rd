@@ -4,7 +4,7 @@
 \alias{rb_dataset_load}
 \title{Load a dataset from a refinebio download}
 \usage{
-rb_dataset_load(dataset, base_path = rb_data_path(), use_caching = TRUE)
+rb_dataset_load(dataset, base_path = datastore_get_path(), use_caching = TRUE)
 }
 \arguments{
 \item{base_path}{The path to the directory where the dataset will be

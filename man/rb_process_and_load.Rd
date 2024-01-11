@@ -4,7 +4,7 @@
 \alias{rb_process_and_load}
 \title{Process and load a dataset}
 \usage{
-rb_process_and_load(ds, base_path = rb_data_path())
+rb_process_and_load(ds, base_path = dstore_get_path())
 }
 \arguments{
 \item{ds}{The dataset ID or \code{rb_dataset} object}

@@ -1,6 +1,8 @@
 #' internal function to get the email address for the current session
 #'
-#' @keywords internal
+#'   \if{html}{\figure{mai.png}{options: width="100\%" alt="Figure: mai.png"}}
+#'
+#' @export
 .rb_get_email_address <- function() {
   option_email <- getOption("RB_EMAIL_ADDRESS", NA)
   if (!is.na(option_email)) {

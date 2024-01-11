@@ -81,7 +81,7 @@ rb_wait_for_dataset <- function(dataset, seconds = 10) {
 #' @return The path to the downloaded zipfile.
 rb_dataset_download <- function(
     dataset,
-    base_path = rb_data_path(),
+    base_path = dstore_get_path(),
     overwrite = FALSE) {
   dataset_id <- .dataset_id_from_args(dataset)
   stopifnot(rb_dataset_is_available(dataset_id))
@@ -112,7 +112,7 @@ rb_dataset_download <- function(
 #' @return The path to the extracted directory.
 rb_dataset_extract <- function(
     dataset,
-    base_path = rb_data_path(),
+    base_path = dstore_get_path(),
     overwrite = FALSE) {
   dataset_id <- .dataset_id_from_args(dataset)
   if (file.exists(file.path(
@@ -140,7 +140,7 @@ rb_dataset_extract <- function(
 #'
 #' @export
 rb_dataset_load <- function(
-    dataset, base_path = rb_data_path(), use_caching = TRUE) {
+    dataset, base_path = datastore_get_path(), use_caching = TRUE) {
   dataset_id <- .dataset_id_from_args(dataset)
   dataset_path <- file.path(base_path, dataset_id)
   rds_name <- file.path(dataset_path, paste0(dataset_id, ".rds"))
