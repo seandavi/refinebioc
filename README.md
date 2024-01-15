@@ -28,30 +28,40 @@ BiocManager::install("seandavi/RefineBio")
 
 ## Usage
 
-### Basic search
+### Available Experiments
 
 ``` r
 library(RefineBio)
-search_results <- rb_search_list()
-search_results$count
-head(search_results$results)
-lapply(search_results$facets, head)
+experiments <- experiment_listing(.pages = 2)
+head(experiments)
 ```
 
-### Available Organisms
+### Get an Experiment
 
 ``` r
-orgs <- rb_organisms_list()
-head(orgs$results)
+dset <- rb_dataset_request("GSE1133")
+rb_dataset_ensure_started(dset)
+rb_wait_for_dataset(dset)
+rb_dataset_download(dset)
+rb_dataset_extract(dset)
+gselist <- rb_dataset_load(dset)
 ```
 
-### Available Platforms
+And the dataset:
 
 ``` r
-plats <- rb_platforms_list()
-head(plats)
-dim(plats)
+gselist
 ```
+
+    $GSE1133
+    class: SummarizedExperiment 
+    dim: 11868 158 
+    metadata(13): accession_code description ... technology title
+    assays(1): exprs
+    rownames: NULL
+    rowData names(1): Gene
+    colnames(158): GSM18865 GSM18866 ... GSM19021 GSM19022
+    colData names(57): refinebio_accession_code experiment_accession ... title type
 
 ## Developer checklist
 
