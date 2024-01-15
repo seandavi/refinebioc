@@ -30,7 +30,7 @@ BiocManager::install("seandavi/RefineBio")
 
 ### Available Experiments
 
-```{r eval=FALSE}
+```{r}
 library(RefineBio)
 experiments <- experiment_listing(.pages = 2)
 head(experiments)
