@@ -88,9 +88,10 @@
 <div class="section level3">
 <h3 id="available-experiments">Available Experiments<a class="anchor" aria-label="anchor" href="#available-experiments"></a>
 </h3>
+<p>RefineBio has a large number of experiments available. You can get a list of all of them with:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://seandavi.github.io/RefineBio">RefineBio</a></span><span class="op">)</span></span>
-<span><span class="va">experiments</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/experiment_listing.html">experiment_listing</a></span><span class="op">(</span>.pages <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
+<span><span class="va">experiments</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/experiment_listing.html">experiment_listing</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">experiments</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb3"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="do">## # A tibble: 6 × 21</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="do">##      id title            publication_title description technology accession_code</span></span>
@@ -108,29 +109,46 @@
 <span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="do">## #   organism_names &lt;list&gt;, downloadable_organism_names &lt;list&gt;, pubmed_id &lt;chr&gt;,</span></span>
 <span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="do">## #   num_total_samples &lt;int&gt;, num_processed_samples &lt;int&gt;,</span></span>
 <span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="do">## #   num_downloadable_samples &lt;int&gt;, source_first_published &lt;date&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="va">experiments</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 62518    21</span></span></code></pre></div>
+<p>Refine.bio uses multiples sources for data. A simple breakdown can be obtained with:</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/sort.html" class="external-link">sort</a></span><span class="op">(</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/table.html" class="external-link">table</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">gsub</a></span><span class="op">(</span><span class="st">"[0-9]"</span>, <span class="st">""</span>, <span class="va">experiments</span><span class="op">$</span><span class="va">accession_code</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>  decreasing <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="do">##     GSE     SRP     ERP E-MTAB- E-MEXP-     DRP E-TABM- E-NASC- E-ATMX- E-TOXM- </span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="do">##   34239   24013    1743     894     858     412     203      59      23      20 </span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="do">## E-CBIL- E-AFMX- E-MIMR- E-BAIR- E-HGMP- E-MAXD- E-BIID- E-EMBL- E-LGCL- </span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="do">##      19      10       9       8       3       2       1       1       1</span></span></code></pre></div>
 </div>
 <div class="section level3">
-<h3 id="get-an-experiment">Get an Experiment<a class="anchor" aria-label="anchor" href="#get-an-experiment"></a>
+<h3 id="create-and-download-a-dataset">Create and download a dataset<a class="anchor" aria-label="anchor" href="#create-and-download-a-dataset"></a>
 </h3>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">dset</span> <span class="op">&lt;-</span> <span class="fu">rb_dataset_request</span><span class="op">(</span><span class="st">"GSE1133"</span><span class="op">)</span></span>
-<span><span class="fu">rb_dataset_ensure_started</span><span class="op">(</span><span class="va">dset</span><span class="op">)</span></span>
+<p>An “experiment” for refine.bio is a collection of samples that were processed together. A “dataset” is a collection of experiments that you want to analyze together. You can create a dataset with:</p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">dset</span> <span class="op">&lt;-</span> <span class="fu">rb_dataset_request</span><span class="op">(</span><span class="st">"GSE1133"</span><span class="op">)</span></span></code></pre></div>
+<p>This will create a dataset object that you can use to download and analyze the data. The “request” is just that. It does not download or process the data. To get to actual data loaded into R, you need to do the following:</p>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">rb_dataset_ensure_started</span><span class="op">(</span><span class="va">dset</span><span class="op">)</span></span>
 <span><span class="fu"><a href="reference/rb_wait_for_dataset.html">rb_wait_for_dataset</a></span><span class="op">(</span><span class="va">dset</span><span class="op">)</span></span>
 <span><span class="fu"><a href="reference/rb_dataset_download.html">rb_dataset_download</a></span><span class="op">(</span><span class="va">dset</span><span class="op">)</span></span>
 <span><span class="fu"><a href="reference/rb_dataset_extract.html">rb_dataset_extract</a></span><span class="op">(</span><span class="va">dset</span><span class="op">)</span></span>
 <span><span class="va">gselist</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/rb_dataset_load.html">rb_dataset_load</a></span><span class="op">(</span><span class="va">dset</span><span class="op">)</span></span></code></pre></div>
-<p>And the dataset:</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<p>And the resulting list of SummarizedExperiment objects is:</p>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">gselist</span></span></code></pre></div>
-<div class="sourceCode" id="cb6"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span>GSE1133</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>class<span class="sc">:</span> SummarizedExperiment </span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>dim<span class="sc">:</span> <span class="dv">11868</span> <span class="dv">158</span> </span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">metadata</span>(<span class="dv">13</span>)<span class="sc">:</span> accession_code description ... technology title</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">assays</span>(<span class="dv">1</span>)<span class="sc">:</span> exprs</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>rownames<span class="sc">:</span> <span class="cn">NULL</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>rowData <span class="fu">names</span>(<span class="dv">1</span>)<span class="sc">:</span> Gene</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(<span class="dv">158</span>)<span class="sc">:</span> GSM18865 GSM18866 ... GSM19021 GSM19022</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>colData <span class="fu">names</span>(<span class="dv">57</span>)<span class="sc">:</span> refinebio_accession_code experiment_accession ... title type</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span>GSE1133</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>class<span class="sc">:</span> SummarizedExperiment </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>dim<span class="sc">:</span> <span class="dv">11868</span> <span class="dv">158</span> </span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">metadata</span>(<span class="dv">13</span>)<span class="sc">:</span> accession_code description ... technology title</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">assays</span>(<span class="dv">1</span>)<span class="sc">:</span> exprs</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>rownames<span class="sc">:</span> <span class="cn">NULL</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>rowData <span class="fu">names</span>(<span class="dv">1</span>)<span class="sc">:</span> Gene</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(<span class="dv">158</span>)<span class="sc">:</span> GSM18865 GSM18866 ... GSM19021 GSM19022</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>colData <span class="fu">names</span>(<span class="dv">57</span>)<span class="sc">:</span> refinebio_accession_code experiment_accession ... title type</span></code></pre></div>
 </div>
 </div>
 <div class="section level2">

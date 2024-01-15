@@ -63,14 +63,15 @@ This function returns a list of all experiments in refine.bio as a tibble.</p>
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">experiment_listing</span><span class="op">(</span><span class="va">.pages</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">experiment_listing</span><span class="op">(</span>.pages <span class="op">=</span> <span class="cn">Inf</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>.pages</dt>
-<dd><p><code>integer(1)</code> The number of pages to retrieve. Will return
-all pages if <code>NULL</code> (default). Generally, you'll want to ignore this;
+<dd><p><code>integer(1)</code> The number of pages
+to retrieve (with default=<code>Inf</code>).
+Generally, you'll want to ignore this;
 it's only useful for testing.</p></dd>
 
 </dl></div>
