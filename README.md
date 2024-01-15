@@ -30,9 +30,12 @@ BiocManager::install("seandavi/RefineBio")
 
 ### Available Experiments
 
+RefineBio has a large number of experiments available. You can get a
+list of all of them with:
+
 ``` r
 library(RefineBio)
-experiments <- experiment_listing(.pages = 2)
+experiments <- experiment_listing()
 head(experiments)
 ```
 
@@ -53,10 +56,44 @@ head(experiments)
     ## #   num_total_samples <int>, num_processed_samples <int>,
     ## #   num_downloadable_samples <int>, source_first_published <date>
 
-### Get an Experiment
+``` r
+dim(experiments)
+```
+
+    ## [1] 62518    21
+
+Refine.bio uses multiples sources for data. A simple breakdown can be
+obtained with:
+
+``` r
+sort(
+  table(gsub("[0-9]", "", experiments$accession_code)),
+  decreasing = TRUE
+)
+```
+
+    ## 
+    ##     GSE     SRP     ERP E-MTAB- E-MEXP-     DRP E-TABM- E-NASC- E-ATMX- E-TOXM- 
+    ##   34239   24013    1743     894     858     412     203      59      23      20 
+    ## E-CBIL- E-AFMX- E-MIMR- E-BAIR- E-HGMP- E-MAXD- E-BIID- E-EMBL- E-LGCL- 
+    ##      19      10       9       8       3       2       1       1       1
+
+### Create and download a dataset
+
+An “experiment” for refine.bio is a collection of samples that were
+processed together. A “dataset” is a collection of experiments that you
+want to analyze together. You can create a dataset with:
 
 ``` r
 dset <- rb_dataset_request("GSE1133")
+```
+
+This will create a dataset object that you can use to download and
+analyze the data. The “request” is just that. It does not download or
+process the data. To get to actual data loaded into R, you need to do
+the following:
+
+``` r
 rb_dataset_ensure_started(dset)
 rb_wait_for_dataset(dset)
 rb_dataset_download(dset)
@@ -64,7 +101,7 @@ rb_dataset_extract(dset)
 gselist <- rb_dataset_load(dset)
 ```
 
-And the dataset:
+And the resulting list of SummarizedExperiment objects is:
 
 ``` r
 gselist
