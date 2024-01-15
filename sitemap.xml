@@ -1,105 +1,105 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://seandavi.github.io/RefineBio/404.html</loc>
+    <loc>https://seandavi.github.io/refinebioc/404.html</loc>
   </url>
   <url>
-    <loc>https://seandavi.github.io/RefineBio/LICENSE-text.html</loc>
+    <loc>https://seandavi.github.io/refinebioc/LICENSE-text.html</loc>
   </url>
   <url>
-    <loc>https://seandavi.github.io/RefineBio/LICENSE.html</loc>
+    <loc>https://seandavi.github.io/refinebioc/LICENSE.html</loc>
   </url>
   <url>
-    <loc>https://seandavi.github.io/RefineBio/authors.html</loc>
+    <loc>https://seandavi.github.io/refinebioc/authors.html</loc>
   </url>
   <url>
-    <loc>https://seandavi.github.io/RefineBio/index.html</loc>
+    <loc>https://seandavi.github.io/refinebioc/index.html</loc>
   </url>
   <url>
-    <loc>https://seandavi.github.io/RefineBio/news/index.html</loc>
+    <loc>https://seandavi.github.io/refinebioc/news/index.html</loc>
   </url>
   <url>
-    <loc>https://seandavi.github.io/RefineBio/reference/dataset_page_browser.html</loc>
+    <loc>https://seandavi.github.io/refinebioc/reference/dataset_page_browser.html</loc>
   </url>
   <url>
-    <loc>https://seandavi.github.io/RefineBio/reference/dataset_sharing_link.html</loc>
+    <loc>https://seandavi.github.io/refinebioc/reference/dataset_sharing_link.html</loc>
   </url>
   <url>
-    <loc>https://seandavi.github.io/RefineBio/reference/datastore_datasets.html</loc>
+    <loc>https://seandavi.github.io/refinebioc/reference/datastore_datasets.html</loc>
   </url>
   <url>
-    <loc>https://seandavi.github.io/RefineBio/reference/datastore_example_path.html</loc>
+    <loc>https://seandavi.github.io/refinebioc/reference/datastore_example_path.html</loc>
   </url>
   <url>
-    <loc>https://seandavi.github.io/RefineBio/reference/datastore_get_path.html</loc>
+    <loc>https://seandavi.github.io/refinebioc/reference/datastore_get_path.html</loc>
   </url>
   <url>
-    <loc>https://seandavi.github.io/RefineBio/reference/datastore_set_path.html</loc>
+    <loc>https://seandavi.github.io/refinebioc/reference/datastore_set_path.html</loc>
   </url>
   <url>
-    <loc>https://seandavi.github.io/RefineBio/reference/dot-process_json_result.html</loc>
+    <loc>https://seandavi.github.io/refinebioc/reference/dot-process_json_result.html</loc>
   </url>
   <url>
-    <loc>https://seandavi.github.io/RefineBio/reference/dot-rb_get_email_address.html</loc>
+    <loc>https://seandavi.github.io/refinebioc/reference/dot-rb_get_email_address.html</loc>
   </url>
   <url>
-    <loc>https://seandavi.github.io/RefineBio/reference/dot-refinebio_base.html</loc>
+    <loc>https://seandavi.github.io/refinebioc/reference/dot-refinebio_base.html</loc>
   </url>
   <url>
-    <loc>https://seandavi.github.io/RefineBio/reference/experiment_listing.html</loc>
+    <loc>https://seandavi.github.io/refinebioc/reference/experiment_listing.html</loc>
   </url>
   <url>
-    <loc>https://seandavi.github.io/RefineBio/reference/extract_local_dataset.html</loc>
+    <loc>https://seandavi.github.io/refinebioc/reference/extract_local_dataset.html</loc>
   </url>
   <url>
-    <loc>https://seandavi.github.io/RefineBio/reference/get_absolute_path.html</loc>
+    <loc>https://seandavi.github.io/refinebioc/reference/get_absolute_path.html</loc>
   </url>
   <url>
-    <loc>https://seandavi.github.io/RefineBio/reference/index.html</loc>
+    <loc>https://seandavi.github.io/refinebioc/reference/index.html</loc>
   </url>
   <url>
-    <loc>https://seandavi.github.io/RefineBio/reference/rb_compendia_list.html</loc>
+    <loc>https://seandavi.github.io/refinebioc/reference/rb_compendia_list.html</loc>
   </url>
   <url>
-    <loc>https://seandavi.github.io/RefineBio/reference/rb_dataset_download.html</loc>
+    <loc>https://seandavi.github.io/refinebioc/reference/rb_dataset_download.html</loc>
   </url>
   <url>
-    <loc>https://seandavi.github.io/RefineBio/reference/rb_dataset_extract.html</loc>
+    <loc>https://seandavi.github.io/refinebioc/reference/rb_dataset_extract.html</loc>
   </url>
   <url>
-    <loc>https://seandavi.github.io/RefineBio/reference/rb_dataset_load.html</loc>
+    <loc>https://seandavi.github.io/refinebioc/reference/rb_dataset_load.html</loc>
   </url>
   <url>
-    <loc>https://seandavi.github.io/RefineBio/reference/rb_dataset_update_state.html</loc>
+    <loc>https://seandavi.github.io/refinebioc/reference/rb_dataset_update_state.html</loc>
   </url>
   <url>
-    <loc>https://seandavi.github.io/RefineBio/reference/rb_email_address.html</loc>
+    <loc>https://seandavi.github.io/refinebioc/reference/rb_email_address.html</loc>
   </url>
   <url>
-    <loc>https://seandavi.github.io/RefineBio/reference/rb_entity_list.html</loc>
+    <loc>https://seandavi.github.io/refinebioc/reference/rb_entity_list.html</loc>
   </url>
   <url>
-    <loc>https://seandavi.github.io/RefineBio/reference/rb_get_experiment.html</loc>
+    <loc>https://seandavi.github.io/refinebioc/reference/rb_get_experiment.html</loc>
   </url>
   <url>
-    <loc>https://seandavi.github.io/RefineBio/reference/rb_get_token.html</loc>
+    <loc>https://seandavi.github.io/refinebioc/reference/rb_get_token.html</loc>
   </url>
   <url>
-    <loc>https://seandavi.github.io/RefineBio/reference/rb_institution_list.html</loc>
+    <loc>https://seandavi.github.io/refinebioc/reference/rb_institution_list.html</loc>
   </url>
   <url>
-    <loc>https://seandavi.github.io/RefineBio/reference/rb_organism_list.html</loc>
+    <loc>https://seandavi.github.io/refinebioc/reference/rb_organism_list.html</loc>
   </url>
   <url>
-    <loc>https://seandavi.github.io/RefineBio/reference/rb_platform_list.html</loc>
+    <loc>https://seandavi.github.io/refinebioc/reference/rb_platform_list.html</loc>
   </url>
   <url>
-    <loc>https://seandavi.github.io/RefineBio/reference/rb_process_and_load.html</loc>
+    <loc>https://seandavi.github.io/refinebioc/reference/rb_process_and_load.html</loc>
   </url>
   <url>
-    <loc>https://seandavi.github.io/RefineBio/reference/rb_set_email_address.html</loc>
+    <loc>https://seandavi.github.io/refinebioc/reference/rb_set_email_address.html</loc>
   </url>
   <url>
-    <loc>https://seandavi.github.io/RefineBio/reference/rb_wait_for_dataset.html</loc>
+    <loc>https://seandavi.github.io/refinebioc/reference/rb_wait_for_dataset.html</loc>
   </url>
 </urlset>
