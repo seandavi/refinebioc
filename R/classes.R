@@ -147,7 +147,7 @@ rb_dataset_load <- function(
   if (use_caching && file.exists(rds_name)) {
     return(readRDS(rds_name))
   }
-  loaded <- rb_dataset_loader(dataset_path)
+  loaded <- extract_local_dataset(dataset_path)
   if (use_caching) {
     saveRDS(loaded, file = rds_name)
   }
