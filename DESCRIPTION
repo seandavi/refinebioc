@@ -12,8 +12,10 @@ Authors@R:
            role = c("aut", "cre"),
            email = "seandavi@gmail.com",
            comment = c(ORCID = "0000-0002-8991-6458")))
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Description: The refine.bio project provides a large collection of
+    uniformly processed and annotated gene expression data sets.  This
+    package provides a bridge between refine.bio and Bioconductor,
+    allowing users to search for and download data sets of interest.
 Imports: httr, jsonlite, R6, data.table,
     SummarizedExperiment, readr, whoami,
     logger, dplyr
