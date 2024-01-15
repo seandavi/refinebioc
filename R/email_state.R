@@ -12,7 +12,7 @@
   if (!is.na(env_email)) {
     return(env_email)
   }
-  email <- whomai::email_address()
+  email <- whoami::email_address()
   if (email != "" && !is.na(email)) {
     return(email)
   }
