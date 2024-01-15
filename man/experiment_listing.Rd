@@ -4,11 +4,12 @@
 \alias{experiment_listing}
 \title{Complete list of all experiments in refine.bio}
 \usage{
-experiment_listing(.pages)
+experiment_listing(.pages = Inf)
 }
 \arguments{
-\item{.pages}{\code{integer(1)} The number of pages to retrieve. Will return
-all pages if \code{NULL} (default). Generally, you'll want to ignore this;
+\item{.pages}{\code{integer(1)} The number of pages
+to retrieve (with default=\code{Inf}).
+Generally, you'll want to ignore this;
 it's only useful for testing.}
 }
 \value{

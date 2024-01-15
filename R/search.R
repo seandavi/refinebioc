@@ -6,9 +6,10 @@
 #' are usually a GEO series or an SRA study.
 #' This function returns a list of all experiments in refine.bio as a tibble.
 #'
-#' @param .pages `integer(1)` The number of pages to retrieve. Will return
-#'  all pages if `NULL` (default). Generally, you'll want to ignore this;
-#'  it's only useful for testing.
+#' @param .pages `integer(1)` The number of pages
+#'   to retrieve (with default=`Inf`).
+#'   Generally, you'll want to ignore this;
+#'   it's only useful for testing.
 #'
 #' @author
 #'   - Sean Davis <seandavi@gmail.com>
@@ -67,10 +68,7 @@
 #' colnames(experiments)
 #'
 #' @export
-experiment_listing <- function(.pages) {
-  args <- list()
-  args["pages"] <- NULL
-
+experiment_listing <- function(.pages = Inf) {
   limit <- 1000
   offset <- 0
 
@@ -99,7 +97,7 @@ experiment_listing <- function(.pages) {
     page <- page + 1
     if (.progress) cli::cli_progress_update()
     new_results <- get_by_endpoint("search",
-      query = c(args, list(limit = limit, offset = offset))
+      query = list(limit = limit, offset = offset)
     )$results
     new_results <- tibble::as_tibble(new_results)
     results <- dplyr::bind_rows(results, new_results)
