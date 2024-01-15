@@ -1,5 +1,5 @@
 
-# RefineBio
+# refinebioc
 
 This package provides the bridge between Bioconductor and the vast,
 homogeneously-processed transcriptomic data from

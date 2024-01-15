@@ -1,4 +1,4 @@
-Package: RefineBio
+Package: refinebioc
 Type: Package
 Title: The bridge between refine.bio and Bioconductor
 Version: 0.6.0
@@ -27,5 +27,5 @@ Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE, r6 = TRUE)
 RoxygenNote: 7.2.3
-URL: https://seandavi.github.io/RefineBio, https://github.com/seandavi/RefineBio
+URL: https://seandavi.github.io/refinebioc, https://github.com/seandavi/refinebioc
 Config/testthat/edition: 3

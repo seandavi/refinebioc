@@ -1,14 +1,9 @@
-# RefineBio 0.6.0
+# refinebioc 0.6.0
 
 This is the initial development release.
 
 ## Features
-* searching
-* listing
-  * compendia
-  * organisms
-  * institutions
-  * platforms
+* list all available data
 * datasets
   * creation
   * download
