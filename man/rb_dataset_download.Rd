@@ -4,7 +4,11 @@
 \alias{rb_dataset_download}
 \title{Download an available dataset from refine.bio}
 \usage{
-rb_dataset_download(dataset, base_path = dstore_get_path(), overwrite = FALSE)
+rb_dataset_download(
+  dataset,
+  base_path = datastore_get_path(),
+  overwrite = FALSE
+)
 }
 \arguments{
 \item{base_path}{The path to the directory where the dataset will be

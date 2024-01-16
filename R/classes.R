@@ -81,7 +81,7 @@ rb_wait_for_dataset <- function(dataset, seconds = 10) {
 #' @return The path to the downloaded zipfile.
 rb_dataset_download <- function(
     dataset,
-    base_path = dstore_get_path(),
+    base_path = datastore_get_path(),
     overwrite = FALSE) {
   dataset_id <- .dataset_id_from_args(dataset)
   stopifnot(rb_dataset_is_available(dataset_id))
@@ -112,7 +112,7 @@ rb_dataset_download <- function(
 #' @return The path to the extracted directory.
 rb_dataset_extract <- function(
     dataset,
-    base_path = dstore_get_path(),
+    base_path = datastore_get_path(),
     overwrite = FALSE) {
   dataset_id <- .dataset_id_from_args(dataset)
   if (file.exists(file.path(
@@ -121,7 +121,10 @@ rb_dataset_extract <- function(
     return(file.path(base_path, dataset_id))
   }
   zip_file <- file.path(base_path, paste0(dataset_id, ".zip"))
-  unzip(zip_file, exdir = file.path(base_path, dataset_id), overwrite = overwrite)
+  unzip(
+    zip_file,
+    exdir = file.path(base_path, dataset_id), overwrite = overwrite
+  )
   # TODO: consider gzipping the tsv and json files
   # The readers will all deal with the gz files just fine.
   return(file.path(base_path, dataset_id))

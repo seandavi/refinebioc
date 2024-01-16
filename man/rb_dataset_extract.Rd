@@ -4,7 +4,11 @@
 \alias{rb_dataset_extract}
 \title{Extract a downloaded dataset zipfile}
 \usage{
-rb_dataset_extract(dataset, base_path = dstore_get_path(), overwrite = FALSE)
+rb_dataset_extract(
+  dataset,
+  base_path = datastore_get_path(),
+  overwrite = FALSE
+)
 }
 \arguments{
 \item{base_path}{Path to the directory where the zipfile will be extracted.}
