@@ -20,6 +20,7 @@ Imports: httr, jsonlite, R6, data.table,
     SummarizedExperiment, readr, whoami,
     logger, dplyr
 Suggests: 
+    knitr,
     pkgdown,
     rmarkdown,
     styler,
@@ -31,3 +32,4 @@ Roxygen: list(markdown = TRUE, r6 = TRUE)
 RoxygenNote: 7.2.3
 URL: https://seandavi.github.io/refinebioc, https://github.com/seandavi/refinebioc
 Config/testthat/edition: 3
+VignetteBuilder: knitr

@@ -1,0 +1,48 @@
+---
+title: "Getting started with the refinebioc package"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{refinebioc}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# Introduction
+
+The `refinebioc` package is a collection of functions that can be used to refine Bioconductor objects. The package is designed to be used in conjunction with the `BiocFileCache` package, which provides a way to cache Bioconductor objects on disk. The `refinebioc` package provides functions to refine these cached objects, such as filtering, normalizing, and transforming data.
+
+# Installation
+
+You can install the `refinebioc` package from Bioconductor using the following code:
+
+```{r}
+if (!requireNamespace("BiocManager", quietly = TRUE)) {
+  install.packages("BiocManager")
+}
+BiocManager::install("seandavi/refinebioc")
+```
+
+# Usage
+
+## Loading the package
+
+```{r}
+library(refinebioc)
+```
+
+## Searching for experiments
+
+```{r cache=TRUE}
+experiments <- experiment_listing()
+```
+
+## Loading an experiment
+
+```{r}
