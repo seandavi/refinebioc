@@ -68,7 +68,7 @@
 #' colnames(experiments)
 #'
 #' @export
-experiment_listing <- function(.pages = Inf) {
+experiment_listing <- function(.pages = 100000) {
   limit <- 1000
   offset <- 0
 
@@ -87,7 +87,7 @@ experiment_listing <- function(.pages = Inf) {
     #     Cannot find current progress bar for `<environment: 0x15cc0c588>
     # so we add 1 to the total to avoid this
     cli::cli_progress_bar("Getting experiment metadata... ",
-      total = max(.pages, ceiling(count / limit)) + 1
+      total = min(.pages, ceiling(count / limit)) + 1
     )
     cli::cli_progress_update()
   }
