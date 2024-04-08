@@ -102,37 +102,18 @@ experiments in the RefineBio downloaded dataset.</p>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Load the dataset</span></span></span>
 <span class="r-in"><span><span class="va">example_se_list</span> <span class="op">&lt;-</span> <span class="fu">extract_local_dataset</span><span class="op">(</span><span class="va">example_dataset_path</span><span class="op">)</span></span></span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in extract_local_dataset(example_dataset_path):</span> Could not find metadata file in download directory.</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Get the first experiment</span></span></span>
 <span class="r-in"><span><span class="va">example_se</span> <span class="op">&lt;-</span> <span class="va">example_se_list</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span></span></span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in eval(expr, envir, enclos):</span> object 'example_se_list' not found</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">example_se</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> class: SummarizedExperiment </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> dim: 19 48 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> metadata(13): accession_code description ... technology title</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> assays(1): exprs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> rownames: NULL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> rowData names(1): Gene</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> colnames(48): SRR6413028 SRR6413029 ... SRR6413074 SRR6413075</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> colData names(24): refinebio_accession_code experiment_accession ...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   refinebio_title refinebio_treatment</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in eval(expr, envir, enclos):</span> object 'example_se' not found</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Get the first experiment's metadata</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="fu">metadata</span><span class="op">(</span><span class="va">example_se</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> List of 13</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ accession_code        : chr "SRP127409"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ description           : chr "RNA was purified cancer cell lines. The \"SAMPLE_ID\" sample characteristic is a sample identifier internal to "| __truncated__</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ has_publication       : logi TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ organisms             : chr "HOMO_SAPIENS"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ protocol_description  : chr "Cells were centrifuged at 2,600 rcf for 7 minutes (neurons) or 6,600 rcf for 7 minutes (other cell types) and t"| __truncated__</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ publication_doi       : chr ""</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ publication_title     : chr "Pharmacological Induction of RAS-GTP Confers RAF Inhibitor Sensitivity in KRAS Mutant Tumors."</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ pubmed_id             : chr "30300582"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ source_first_published: chr "2018-10-02T00:00:00"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ source_last_modified  : chr "2019-01-04T00:00:00"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ submitter_institution : chr ""</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ technology            : chr "RNA-SEQ"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ title                 : chr "4 NSCLC cell lines treated with GDC-0973, AZ-628 or a combination of both"</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in h(simpleError(msg, call)):</span> error in evaluating the argument 'x' in selecting a method for function 'metadata': object 'example_se' not found</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

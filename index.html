@@ -94,39 +94,39 @@
 </h3>
 <p>RefineBio has a large number of experiments available. You can get a list of all of them with:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://seandavi.github.io/RefineBio" class="external-link">RefineBio</a></span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">RefineBio</span><span class="op">)</span></span>
 <span><span class="va">experiments</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/experiment_listing.html">experiment_listing</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">experiments</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb3"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="do">## # A tibble: 6 × 21</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="do">##      id title            publication_title description technology accession_code</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="do">##   &lt;int&gt; &lt;chr&gt;            &lt;chr&gt;             &lt;chr&gt;       &lt;chr&gt;      &lt;chr&gt;         </span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="do">## 1 52090 Shared and dist… Shared and disti… Neocortex … RNA-SEQ    SRP150473     </span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="do">## 2 51049 Transcriptome a… Conserved proper… RNA sequen… RNA-SEQ    SRP118985     </span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="do">## 3 47744 In vivo molecul… Broadly neutrali… Dengue vir… RNA-SEQ    SRP152576     </span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="do">## 4 67685 Drug-induced ch… The NCI Transcri… To identif… MICROARRAY GSE116436     </span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="do">## 5 50699 Single-cell tra… Classes and cont… We  studie… RNA-SEQ    SRP109000     </span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="do">## 6 51542 Single cell RNA… Diversity of Int… In order t… RNA-SEQ    SRP124669     </span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="do">## # ℹ 15 more variables: alternate_accession_code &lt;chr&gt;,</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="do">## #   submitter_institution &lt;chr&gt;, has_publication &lt;lgl&gt;, publication_doi &lt;chr&gt;,</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="do">## #   publication_authors &lt;list&gt;, sample_metadata_fields &lt;list&gt;,</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="do">## #   platform_names &lt;list&gt;, platform_accession_codes &lt;list&gt;,</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="do">## #   organism_names &lt;list&gt;, downloadable_organism_names &lt;list&gt;, pubmed_id &lt;chr&gt;,</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="do">## #   num_total_samples &lt;int&gt;, num_processed_samples &lt;int&gt;,</span></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="do">## #   num_downloadable_samples &lt;int&gt;, source_first_published &lt;date&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="do">## # A tibble: 6 × 21</span></span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="do">##      id title            publication_title description technology accession_code</span></span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="do">##   &lt;int&gt; &lt;chr&gt;            &lt;chr&gt;             &lt;chr&gt;       &lt;chr&gt;      &lt;chr&gt;         </span></span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="do">## 1 52090 Shared and dist… Shared and disti… Neocortex … RNA-SEQ    SRP150473     </span></span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a><span class="do">## 2 51049 Transcriptome a… Conserved proper… RNA sequen… RNA-SEQ    SRP118985     </span></span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a><span class="do">## 3 47744 In vivo molecul… Broadly neutrali… Dengue vir… RNA-SEQ    SRP152576     </span></span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a><span class="do">## 4 67685 Drug-induced ch… The NCI Transcri… To identif… MICROARRAY GSE116436     </span></span>
+<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a><span class="do">## 5 50699 Single-cell tra… Classes and cont… We  studie… RNA-SEQ    SRP109000     </span></span>
+<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a><span class="do">## 6 51542 Single cell RNA… Diversity of Int… In order t… RNA-SEQ    SRP124669     </span></span>
+<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a><span class="do">## # ℹ 15 more variables: alternate_accession_code &lt;chr&gt;,</span></span>
+<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a><span class="do">## #   submitter_institution &lt;chr&gt;, has_publication &lt;lgl&gt;, publication_doi &lt;chr&gt;,</span></span>
+<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a><span class="do">## #   publication_authors &lt;list&gt;, sample_metadata_fields &lt;list&gt;,</span></span>
+<span id="cb3-13"><a href="#cb3-13" tabindex="-1"></a><span class="do">## #   platform_names &lt;list&gt;, platform_accession_codes &lt;list&gt;,</span></span>
+<span id="cb3-14"><a href="#cb3-14" tabindex="-1"></a><span class="do">## #   organism_names &lt;list&gt;, downloadable_organism_names &lt;list&gt;, pubmed_id &lt;chr&gt;,</span></span>
+<span id="cb3-15"><a href="#cb3-15" tabindex="-1"></a><span class="do">## #   num_total_samples &lt;int&gt;, num_processed_samples &lt;int&gt;,</span></span>
+<span id="cb3-16"><a href="#cb3-16" tabindex="-1"></a><span class="do">## #   num_downloadable_samples &lt;int&gt;, source_first_published &lt;date&gt;</span></span></code></pre></div>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="va">experiments</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb5"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 62518    21</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="do">## [1] 62518    21</span></span></code></pre></div>
 <p>Refine.bio uses multiples sources for data. A simple breakdown can be obtained with:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/sort.html" class="external-link">sort</a></span><span class="op">(</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/table.html" class="external-link">table</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">gsub</a></span><span class="op">(</span><span class="st">"[0-9]"</span>, <span class="st">""</span>, <span class="va">experiments</span><span class="op">$</span><span class="va">accession_code</span><span class="op">)</span><span class="op">)</span>,</span>
 <span>  decreasing <span class="op">=</span> <span class="cn">TRUE</span></span>
 <span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb7"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="do">##     GSE     SRP     ERP E-MTAB- E-MEXP-     DRP E-TABM- E-NASC- E-ATMX- E-TOXM- </span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="do">##   34239   24013    1743     894     858     412     203      59      23      20 </span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="do">## E-CBIL- E-AFMX- E-MIMR- E-BAIR- E-HGMP- E-MAXD- E-BIID- E-EMBL- E-LGCL- </span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="do">##      19      10       9       8       3       2       1       1       1</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="do">##     GSE     SRP     ERP E-MTAB- E-MEXP-     DRP E-TABM- E-NASC- E-ATMX- E-TOXM- </span></span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a><span class="do">##   34239   24013    1743     894     858     412     203      59      23      20 </span></span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a><span class="do">## E-CBIL- E-AFMX- E-MIMR- E-BAIR- E-HGMP- E-MAXD- E-BIID- E-EMBL- E-LGCL- </span></span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a><span class="do">##      19      10       9       8       3       2       1       1       1</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="create-and-download-a-dataset">Create and download a dataset<a class="anchor" aria-label="anchor" href="#create-and-download-a-dataset"></a>
@@ -144,47 +144,30 @@
 <p>And the resulting list of SummarizedExperiment objects is:</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">gselist</span></span></code></pre></div>
-<div class="sourceCode" id="cb11"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span>GSE1133</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>class<span class="sc">:</span> SummarizedExperiment </span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>dim<span class="sc">:</span> <span class="dv">11868</span> <span class="dv">158</span> </span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">metadata</span>(<span class="dv">13</span>)<span class="sc">:</span> accession_code description ... technology title</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">assays</span>(<span class="dv">1</span>)<span class="sc">:</span> exprs</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>rownames<span class="sc">:</span> <span class="cn">NULL</span></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>rowData <span class="fu">names</span>(<span class="dv">1</span>)<span class="sc">:</span> Gene</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(<span class="dv">158</span>)<span class="sc">:</span> GSM18865 GSM18866 ... GSM19021 GSM19022</span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>colData <span class="fu">names</span>(<span class="dv">57</span>)<span class="sc">:</span> refinebio_accession_code experiment_accession ... title type</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="sc">$</span>GSE1133</span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a>class<span class="sc">:</span> SummarizedExperiment </span>
+<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a>dim<span class="sc">:</span> <span class="dv">11868</span> <span class="dv">158</span> </span>
+<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a><span class="fu">metadata</span>(<span class="dv">13</span>)<span class="sc">:</span> accession_code description ... technology title</span>
+<span id="cb11-5"><a href="#cb11-5" tabindex="-1"></a><span class="fu">assays</span>(<span class="dv">1</span>)<span class="sc">:</span> exprs</span>
+<span id="cb11-6"><a href="#cb11-6" tabindex="-1"></a>rownames<span class="sc">:</span> <span class="cn">NULL</span></span>
+<span id="cb11-7"><a href="#cb11-7" tabindex="-1"></a>rowData <span class="fu">names</span>(<span class="dv">1</span>)<span class="sc">:</span> Gene</span>
+<span id="cb11-8"><a href="#cb11-8" tabindex="-1"></a><span class="fu">colnames</span>(<span class="dv">158</span>)<span class="sc">:</span> GSM18865 GSM18866 ... GSM19021 GSM19022</span>
+<span id="cb11-9"><a href="#cb11-9" tabindex="-1"></a>colData <span class="fu">names</span>(<span class="dv">57</span>)<span class="sc">:</span> refinebio_accession_code experiment_accession ... title type</span></code></pre></div>
 </div>
 </div>
 <div class="section level2">
 <h2 id="developer-checklist">Developer checklist<a class="anchor" aria-label="anchor" href="#developer-checklist"></a>
 </h2>
 <ul class="task-list">
-<li>
-<input type="checkbox" disabled>Add tests</li>
-<li>
-<input type="checkbox" disabled>Run <code>devtools::test()</code>
-</li>
-<li>
-<input type="checkbox" disabled>Run <code>devtools::check()</code>
-</li>
-<li>
-<input type="checkbox" disabled>Run <code>devtools::document()</code>
-</li>
-<li>
-<input type="checkbox" disabled>Run <code>devtools::build()</code>
-</li>
-<li>
-<input type="checkbox" disabled>Update <code>READMERmd</code>
-</li>
-<li>
-<input type="checkbox" disabled>Run <code>devtools::build_readme()</code>
-</li>
-<li>
-<input type="checkbox" disabled>Update <code>NEWS.md</code>
-</li>
-<li>
-<input type="checkbox" disabled>Update <code>DESCRIPTION</code>
-</li>
+<li><label><input type="checkbox">Add tests</label></li>
+<li><label><input type="checkbox">Run <code>devtools::test()</code></label></li>
+<li><label><input type="checkbox">Run <code>devtools::check()</code></label></li>
+<li><label><input type="checkbox">Run <code>devtools::document()</code></label></li>
+<li><label><input type="checkbox">Run <code>devtools::build()</code></label></li>
+<li><label><input type="checkbox">Update <code>READMERmd</code></label></li>
+<li><label><input type="checkbox">Run <code>devtools::build_readme()</code></label></li>
+<li><label><input type="checkbox">Update <code>NEWS.md</code></label></li>
+<li><label><input type="checkbox">Update <code>DESCRIPTION</code></label></li>
 </ul>
 <div class="section level3">
 <h3 id="notes">Notes<a class="anchor" aria-label="anchor" href="#notes"></a>
