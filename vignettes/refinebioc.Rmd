@@ -46,3 +46,5 @@ experiments <- experiment_listing()
 ## Loading an experiment
 
 ```{r}
+expts <- rb_get_experiment(c("GSE1133"))
+```
