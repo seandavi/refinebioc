@@ -49,8 +49,11 @@ rb_get_experiment <- function(experiment) {
 #' experiments in the RefineBio downloaded dataset.
 #'
 #' @export
-rb_process_and_load <- function(ds, base_path = dstore_get_path()) {
-  ds <- list(id = ds)
+rb_process_and_load <- function(ds, base_path = datastore_get_path()) {
+  if (is.character(ds)) {
+    ds <- list(id = ds)
+  }
+  logger::log_formatter(logger::formatter_paste)
   logger::log_info("Starting to wait for RefineBio to process: ", ds$id)
   rb_wait_for_dataset(ds)
   logger::log_info("RefineBio finished processing: ", ds$id)
