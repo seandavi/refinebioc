@@ -22,7 +22,7 @@ The `refinebioc` package is a collection of functions that can be used to refine
 
 You can install the `refinebioc` package from Bioconductor using the following code:
 
-```{r}
+```{r eval=FALSE}
 if (!requireNamespace("BiocManager", quietly = TRUE)) {
   install.packages("BiocManager")
 }
