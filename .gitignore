@@ -6,3 +6,4 @@ docs
 .DS_Store
 README.html
 inst/doc
+refinebioc.Rproj
