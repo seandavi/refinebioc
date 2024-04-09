@@ -70,5 +70,5 @@ rb_email_address <- function() {
 #'
 #' @export
 datastore_example_path <- function() {
-  return(system.file("testdata/datastore", package = "RefineBio"))
+  return(system.file("testdata/datastore", package = "refinebioc"))
 }
