@@ -29,7 +29,6 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE, r6 = TRUE)
-RoxygenNote: 7.2.3
 URL: https://seandavi.github.io/refinebioc, https://github.com/seandavi/refinebioc, https://seandavi.github.io/refinebioc/
 Config/testthat/edition: 3
 VignetteBuilder: knitr
