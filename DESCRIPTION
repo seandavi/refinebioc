@@ -16,9 +16,10 @@ Description: The refine.bio project provides a large collection of
     uniformly processed and annotated gene expression data sets.  This
     package provides a bridge between refine.bio and Bioconductor,
     allowing users to search for and download data sets of interest.
-Imports: httr, jsonlite, R6, data.table,
-    SummarizedExperiment, readr, whoami,
-    logger, dplyr
+Imports: httr, jsonlite, data.table,
+    SummarizedExperiment, whoami,
+    logger, dplyr, methods, cli,
+    tibble
 Suggests: 
     knitr,
     pkgdown,
