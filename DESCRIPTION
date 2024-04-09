@@ -33,3 +33,4 @@ Roxygen: list(markdown = TRUE, r6 = TRUE)
 URL: https://seandavi.github.io/refinebioc, https://github.com/seandavi/refinebioc, https://seandavi.github.io/refinebioc/
 Config/testthat/edition: 3
 VignetteBuilder: knitr
+RoxygenNote: 7.3.1
