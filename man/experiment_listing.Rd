@@ -4,7 +4,7 @@
 \alias{experiment_listing}
 \title{Complete list of all experiments in refine.bio}
 \usage{
-experiment_listing(.pages = Inf)
+experiment_listing(.pages = 1e+05)
 }
 \arguments{
 \item{.pages}{\code{integer(1)} The number of pages
