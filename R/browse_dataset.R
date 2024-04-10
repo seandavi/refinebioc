@@ -41,7 +41,7 @@ dataset_sharing_link <- function(dataset) {
 dataset_page_browser <- function(dataset) {
   dataset_id <- .dataset_id_from_args(dataset)
   if (interactive() && !Sys.getenv("TESTTHAT") == "true") {
-    browseURL(sprintf("https://www.refine.bio/dataset/%s", dataset_id))
+    utils::browseURL(sprintf("https://www.refine.bio/dataset/%s", dataset_id))
   }
   invisible(sprintf("https://www.refine.bio/dataset/%s", dataset_id))
 }

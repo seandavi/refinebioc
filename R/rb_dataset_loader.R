@@ -109,5 +109,5 @@ extract_local_dataset <- function(basedir) {
       metadata = expt_metadata
     )
   })
-  setNames(selist, names(md$experiments))
+  stats::setNames(selist, names(md$experiments))
 }

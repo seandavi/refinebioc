@@ -19,7 +19,7 @@ Description: The refine.bio project provides a large collection of
 Imports: httr, jsonlite, data.table,
     SummarizedExperiment, whoami,
     logger, dplyr, methods, cli,
-    tibble
+    tibble, utils, stats
 Suggests: 
     knitr,
     pkgdown,

@@ -2,7 +2,7 @@
   if (is.null(dataset)) {
     stop("dataset_id is required")
   }
-  if (is(dataset, "rb_dataset")) {
+  if (methods::is(dataset, "rb_dataset")) {
     dataset_id <- dataset$id
   } else {
     dataset_id <- dataset
@@ -121,7 +121,7 @@ rb_dataset_extract <- function(
     return(file.path(base_path, dataset_id))
   }
   zip_file <- file.path(base_path, paste0(dataset_id, ".zip"))
-  unzip(
+  utils::unzip(
     zip_file,
     exdir = file.path(base_path, dataset_id), overwrite = overwrite
   )
@@ -167,7 +167,7 @@ rb_dataset_request <- function(
     aggregate_by = "EXPERIMENT",
     notify_me = FALSE,
     start = FALSE) {
-  data <- setNames(as.list(rep("ALL", length(studies))), studies)
+  data <- stats::setNames(as.list(rep("ALL", length(studies))), studies)
   body <- list()
   body$data <- data
   body$email_address <- jsonlite::unbox(
