@@ -1,96 +1,3 @@
-#' Helper function for getting entity lists
-#'
-#' @param endpoint `character(1)` The endpoint to get data from.
-#' @param paginate `logical(1)` Whether to paginate through the results.
-#'
-#' @return `data.frame` The results of the query.
-#'
-#' @keywords internal
-#' @family refine.bio API
-#'
-#' @author Sean Davis <seandavi@gmail.com>
-#'
-#' @examples
-#' \dontrun{
-#' rb_entity_list("platforms", paginate = FALSE)
-#' }
-rb_entity_list <- function(endpoint, paginate) {
-  stopifnot(is.logical(paginate))
-  stopifnot(is.character(endpoint))
-  stopifnot(endpoint %in% c(
-    "platforms", "organisms", "institutions", "compendia"
-  ))
-  offset <- 0
-  res <- get_by_endpoint(endpoint,
-    query = list(limit = 1000, offset = offset)
-  )
-  if (paginate) {
-    count <- res$count
-    results <- res$results
-    while (offset < count) {
-      offset <- offset + 1000
-      new_results <- get_by_endpoint("organisms",
-        query = list(limit = 1000, offset = offset)
-      )$results
-      results <- dplyr::bind_rows(results, new_results)
-    }
-    return(results)
-  } else {
-    return(res$results)
-  }
-}
-
-#' All available platforms in refine.bio
-#'
-#' @return `data.frame` All available platforms.
-#'
-#' @author Sean Davis <seandavi@gmail.com>
-#'
-#' @family refine.bio API
-#'
-#' @examples
-#' platforms <- rb_platform_list()
-#' head(platforms)
-#'
-#' @export
-rb_platform_list <- function() {
-  return(rb_entity_list("platforms", paginate = FALSE))
-}
-
-#' All available organisms in refine.bio
-#'
-#' @author Sean Davis <seandavi@gmail.com>
-#'
-#' @family refine.bio API
-#'
-#' @return `data.frame` All available organisms.
-#'
-#' @examples
-#' orgs <- rb_organism_list()
-#' head(orgs)
-#'
-#' @export
-rb_organism_list <- function() {
-  return(rb_entity_list("organisms", paginate = FALSE))
-}
-
-#' All available institutions in refine.bio
-#'
-#' @return `data.frame` All available submitter institutions.
-#'
-#' @author Sean Davis <seandavi@gmail.com>
-#'
-#' @family refine.bio API
-#'
-#' @examples
-#' insts <- rb_institution_list()
-#' head(insts)
-#'
-#' @export
-rb_institution_list <- function() {
-  return(rb_entity_list("institutions", paginate = FALSE))
-}
-
 #' All available compendia in refine.bio
 #'
 #' This function returns a list of all available compendia in refine.bio.
@@ -165,5 +72,8 @@ rb_institution_list <- function() {
 #'
 #' @export
 rb_compendia_list <- function() {
-  return(rb_entity_list("compendia", paginate = FALSE))
+  res <- get_by_endpoint("compendia",
+    query = list(limit = 1000, offset = 0)
+  )
+  return(res$results)
 }
