@@ -83,16 +83,17 @@ colnames(compendia)
 
 head(compendia)
 
+\dontrun{
 td <- tempdir()
 download.file(
   compendia$computed_file.download_url[1],
   destfile = file.path(td, "compendium.zip")
 )
 list.files(td)
+}
 
 }
 \author{
 Sean Davis \href{mailto:seandavi@gmail.com}{seandavi@gmail.com}
 }
 \concept{compendia}
-\concept{refine.bio API}
