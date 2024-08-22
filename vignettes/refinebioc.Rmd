@@ -41,8 +41,12 @@ library(refinebioc)
 
 The `experiment_listing` function can be used to list all available experiments.
 
-```{r cache=TRUE}
+```{r cache=TRUE, eval=FALSE}
 experiments <- experiment_listing()
+```
+
+```{r cache=TRUE, include=FALSE}
+experiments <- experiment_listing(.pages = 3)
 ```
 
 To get a feel for the data, we can look at the first few rows of the data frame.
