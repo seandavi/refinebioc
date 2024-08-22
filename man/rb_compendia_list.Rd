@@ -65,6 +65,14 @@ that is most useful for their downstream applications.
 Please see the Salmon documentation on the quant.sf
 output format for more information.
 }
+
+\subsection{Downloading compendia}{
+
+Both types of compendia are available for download. The download links are
+listed in the \code{computed_file.download_url} field of the results of this query.
+You can use the \code{download.file} function in R to download the compendia
+that you are interested in.
+}
 }
 \examples{
 # note that the download links are specific to my account
@@ -74,6 +82,13 @@ compendia <- rb_compendia_list()
 colnames(compendia)
 
 head(compendia)
+
+td <- tempdir()
+download.file(
+  compendia$computed_file.download_url[1],
+  destfile = file.path(td, "compendium.zip")
+)
+list.files(td)
 
 }
 \author{
