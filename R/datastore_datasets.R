@@ -3,7 +3,7 @@
 #' When you download a dataset from refine.bio, it is cached locally.
 #' This function will list all of the cached datasets.
 #'
-#' @param datastore_path The path to the local datastore.
+#' @param base_path The path to the local datastore.
 #'
 #' @return A character vector of cached dataset IDs.
 #'

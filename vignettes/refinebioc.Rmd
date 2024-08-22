@@ -64,12 +64,12 @@ experiments %>%
 
 The `rb_get_experiment` function loads the experiment data into memory.
 The refine.bio website and API, from which the data is loaded, prepares the
-data asynchronously, so this function will block until the data is ready, often
-taking a few minutes. 
+data asynchronously, so this function will wait until the data is ready, often
+taking a few minutes. Do not interrupt the function while it is running.
 
 ```{r}
 # Load the GSE1133 experiment
-expts <- rb_get_experiment(c("GSE1133"))
+expts <- rb_get_experiment("GSE1133")
 ```
 
 The `expts` variable contains a list of `SummarizedExperiment` objects. 
@@ -83,6 +83,4 @@ To view the sample information, use the `colData` function.
 ```{r}
 SummarizedExperiment::colData(expts$GSE1133)
 ```
-
-
 

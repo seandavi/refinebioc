@@ -8,13 +8,6 @@ rb_get_experiment(experiment)
 }
 \arguments{
 \item{experiment}{The experiment ID or \code{rb_experiment} object}
-
-\item{base_path}{The path to the directory where the dataset will be
-downloaded and extracted.}
-
-\item{cache_result}{If TRUE, cache the result in the base_path.}
-
-\item{overwrite}{If TRUE, overwrite the cached result.}
 }
 \value{
 A list of \code{SummarizedExperiment}s representing the

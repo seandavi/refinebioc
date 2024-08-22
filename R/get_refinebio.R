@@ -5,10 +5,6 @@
 #' experiment(s).
 #'
 #' @param experiment The experiment ID or `rb_experiment` object
-#' @param base_path The path to the directory where the dataset will be
-#' downloaded and extracted.
-#' @param cache_result If TRUE, cache the result in the base_path.
-#' @param overwrite If TRUE, overwrite the cached result.
 #'
 #' @author Sean Davis <seandavi.gmail.com>
 #'
@@ -42,8 +38,6 @@ rb_get_experiment <- function(experiment) {
 #' @param ds The dataset ID or `rb_dataset` object
 #' @param base_path The path to the directory where the dataset will be
 #' downloaded and extracted.
-#' @param cache_result If TRUE, cache the result in the base_path.
-#' @param overwrite If TRUE, overwrite the cached result.
 #'
 #' @return A list of `SummarizedExperiment`s representing the
 #' experiments in the RefineBio downloaded dataset.
