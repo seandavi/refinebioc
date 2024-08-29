@@ -61,14 +61,14 @@
 #' experiments <- experiment_listing(.pages = 2)
 #'
 #' # get all experiments
-#' # experiments <- experiment_listing()
+#' # experiments <- get_experiment_catalog()
 #'
 #' head(experiments)
 #' dim(experiments)
 #' colnames(experiments)
 #'
 #' @export
-experiment_listing <- function(.pages = 100000) {
+get_experiment_catalog <- function(.pages = 100000) {
   limit <- 1000
   offset <- 0
 
