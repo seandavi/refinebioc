@@ -68,7 +68,7 @@
 #' @examples
 #' # note that the download links are specific to my account
 #' # and will not work for you.
-#' compendia <- rb_compendia_list()
+#' compendia <- list_compendia()
 #'
 #' colnames(compendia)
 #'
@@ -86,7 +86,7 @@
 #' @family compendia
 #'
 #' @export
-rb_compendia_list <- function() {
+list_compendia <- function() {
   res <- get_by_endpoint("compendia",
     query = list(limit = 1000, offset = 0)
   )
