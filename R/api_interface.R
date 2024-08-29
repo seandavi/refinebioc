@@ -26,7 +26,7 @@ make_request <- function(method, url, ...) {
       response$details
     )
     stop(
-      response,
+      msg,
       call. = FALSE
     )
   }
