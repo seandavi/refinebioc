@@ -1,6 +1,6 @@
 TEST_PAGE_COUNT <- 2
 
-test_result <- experiment_listing(.pages = TEST_PAGE_COUNT)
+test_result <- get_experiment_catalog(.pages = TEST_PAGE_COUNT)
 
 test_that("Should return a tibble", {
   expect_s3_class(test_result, "tbl_df")
