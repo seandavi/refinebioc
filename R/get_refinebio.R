@@ -21,12 +21,12 @@
 #' }
 #' @export
 
-rb_get_experiment <- function(experiment) {
-  ds <- rb_dataset_request(
+get_refinebio <- function(experiment) {
+  ds <- submit_dataset_request(
     studies = experiment
   )
   logger::log_info("Registered dataset request: ", ds$id)
-  loaded_dataset <- rb_process_and_load(ds)
+  loaded_dataset <- process_and_load_dataset(ds)
   return(loaded_dataset)
 }
 
@@ -43,22 +43,22 @@ rb_get_experiment <- function(experiment) {
 #' experiments in the RefineBio downloaded dataset.
 #'
 #' @export
-rb_process_and_load <- function(ds, base_path = datastore_get_path()) {
+process_and_load_dataset <- function(ds, base_path = datastore_get_path()) {
   if (is.character(ds)) {
     ds <- list(id = ds)
   }
   logger::log_formatter(logger::formatter_paste)
   logger::log_info("Starting to wait for RefineBio to process: ", ds$id)
-  rb_wait_for_dataset(ds)
+  wait_for_dataset(ds)
   logger::log_info("RefineBio finished processing: ", ds$id)
   logger::log_info("Dataset available: ", ds$id)
   logger::log_info("Starting to download: ", ds$id)
-  rb_dataset_download(ds)
+  download_dataset(ds)
   logger::log_info("Dataset downloaded: ", ds$id)
   logger::log_info("Starting to extract: ", ds$id)
-  rb_dataset_extract(ds)
+  extract_dataset(ds)
   logger::log_info("Dataset extracted: ", ds$id)
-  loaded_dataset <- rb_dataset_load(ds)
+  loaded_dataset <- load_dataset(ds)
   logger::log_info("Dataset loaded: ", ds$id)
 
   return(loaded_dataset)

@@ -54,7 +54,7 @@ rb_dataset_is_available <- function(dataset) {
 #' @param seconds The number of seconds to wait between checks
 #'
 #' @return The dataset object when it is available
-rb_wait_for_dataset <- function(dataset, seconds = 10) {
+wait_for_dataset <- function(dataset, seconds = 10) {
   start_time <- Sys.time()
   rb_dataset_ensure_started(dataset)
   while (!rb_dataset_is_available(dataset)) {
@@ -79,7 +79,7 @@ rb_wait_for_dataset <- function(dataset, seconds = 10) {
 #' @param overwrite If TRUE, overwrite the cached result.
 #'
 #' @return The path to the downloaded zipfile.
-rb_dataset_download <- function(
+download_dataset <- function(
     dataset,
     base_path = datastore_get_path(),
     overwrite = FALSE) {
@@ -110,7 +110,7 @@ rb_dataset_download <- function(
 #' @param overwrite If TRUE, overwrite the existing directory.
 #'
 #' @return The path to the extracted directory.
-rb_dataset_extract <- function(
+extract_dataset <- function(
     dataset,
     base_path = datastore_get_path(),
     overwrite = FALSE) {
@@ -142,7 +142,7 @@ rb_dataset_extract <- function(
 #'  experiments in the RefineBio downloaded dataset.
 #'
 #' @export
-rb_dataset_load <- function(
+load_dataset <- function(
     dataset, base_path = datastore_get_path(), use_caching = TRUE) {
   dataset_id <- .dataset_id_from_args(dataset)
   dataset_path <- file.path(base_path, dataset_id)
@@ -158,7 +158,7 @@ rb_dataset_load <- function(
 }
 
 
-rb_dataset_request <- function(
+submit_dataset_request <- function(
     studies,
     quantile_normalize = FALSE,
     quant_sf_only = FALSE,
