@@ -21,7 +21,7 @@ Imports: httr, jsonlite, data.table,
     logger, dplyr, methods, cli,
     tibble, utils, stats
 Suggests: 
-    knitr,
+    quarto,
     pkgdown,
     rmarkdown,
     styler,
