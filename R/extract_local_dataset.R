@@ -58,7 +58,53 @@ extract_local_dataset <- function(basedir) {
     simplifyDataFrame = TRUE, simplifyVector = TRUE
   )
 
-  # Load the experiment files.
+  # Load the data.
+
+  ### If the aggregate_by is "ALL", then we have a single experiment.
+
+  if (md$aggregate_by == "ALL") {
+    # The metadata_...tsv file contains the colData for the data in
+    # the experiment.
+    meta_tsv_file <- list.files(
+      basedir,
+      pattern = "metadata_ALL.tsv",
+      full.names = TRUE,
+      recursive = TRUE
+    )
+    if (length(meta_tsv_file) != 1) {
+      stop("Could not find metadata file in download directory.")
+    }
+    meta_tsv <- data.table::fread(meta_tsv_file)
+    md$sample_accession_codes <- NULL
+
+    # The other tsv file contains the data for the experiment.
+    data_tsv_file <- list.files(
+      basedir,
+      pattern = "^ALL.tsv",
+      full.names = TRUE,
+      recursive = TRUE
+    )
+    if (length(data_tsv_file) != 1) {
+      stop("Could not find data file in download directory.")
+    }
+    data_tsv <- data.table::fread(data_tsv_file)
+
+    # Prepare the data matrix for attachment to the SummarizedExperiment in
+    # the assay list.
+    data_matrix <- as.matrix(data_tsv[, -1])
+
+    # fix the coldata to have the correct names, etc.
+    rownames(meta_tsv) <- colnames(data_matrix)
+
+    # Finally, create and return the SummarizedExperiment.
+    se <- list(ALL = SummarizedExperiment::SummarizedExperiment(
+      colData = meta_tsv,
+      assays = list(exprs = data_matrix),
+      rowData = data.frame(Gene = data_tsv$Gene),
+      metadata = md$experiments[[1]]
+    ))
+    return(se)
+  }
 
   selist <- lapply(names(md$experiments), function(exptname) {
     # Prep the metadata for attachment to the SummarizedExperiment.

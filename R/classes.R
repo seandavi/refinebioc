@@ -167,6 +167,15 @@ submit_dataset_request <- function(
     aggregate_by = "EXPERIMENT",
     notify_me = FALSE,
     start = FALSE) {
+  stopifnot(length(studies) > 0)
+  stopifnot(is.character(studies))
+  stopifnot(is.logical(quantile_normalize))
+  stopifnot(is.character(svd_algorithm))
+  stopifnot(is.character(scale_by))
+  stopifnot(is.character(aggregate_by))
+  stopifnot(all(aggregate_by %in% c("EXPERIMENT", "SPECIES", "ALL")))
+  stopifnot(all(svd_algorithm %in% c("NONE", "RANDOMIZED", "ARPACK")))
+  stopifnot(all(scale_by %in% c("NONE", "MINMAX", "STANDARD", "ROBUST")))
   data <- stats::setNames(as.list(rep("ALL", length(studies))), studies)
   body <- list()
   body$data <- data
