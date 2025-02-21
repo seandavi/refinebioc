@@ -38,6 +38,7 @@ BiocManager::install("seandavi/refinebioc")
 
 ```{r}
 library(refinebioc)
+rb_set_email_address("seandavi@gmail.com")
 ```
 
 ## Experiments
