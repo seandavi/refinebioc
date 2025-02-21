@@ -40,10 +40,23 @@ experiment(s).
 \examples{
 \dontrun{
 # Get a single experiment
-expt <- rb_get_experiment("GSE1133")
+expt <- get_refinebio("GSE116672")
 
 # Get multiple experiments
-expts <- rb_get_experiment(c("GSE1133", "GSE11331"))
+expts <- get_refinebio(c("SRP066613", "SRP158666"))
+
+# Get multiple experiments with quantile normalization
+expts <- get_refinebio(
+  c("SRP066613", "SRP158666"),
+  quantile_normalize = TRUE
+)
+# Get multiple experiments with quantile normalization and
+# aggregate everything into one summarized experiment
+expts <- get_refinebio(
+  c("SRP066613", "SRP158666"),
+  quantile_normalize = TRUE,
+  aggregate_by = "ALL"
+)
 }
 }
 \author{

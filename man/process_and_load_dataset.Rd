@@ -18,5 +18,8 @@ experiments in the RefineBio downloaded dataset.
 }
 \description{
 This function will process and load a dataset from RefineBio. It is
-intended for use with the \code{rb_get_experiment} function.
+intended for use with the \code{rb_get_experiment} function. However,
+it can be used with any dataset that has been registered by RefineBio.
+This function will download, extract, and load the data from RefineBio
+for the given dataset.
 }

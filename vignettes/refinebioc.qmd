@@ -1,10 +1,9 @@
 ---
 title: "Getting Started"
-output:
+format: 
   html:
     toc: true
     html-math-method: mathjax
-  execute: false
 vignette: >
   %\VignetteIndexEntry{Getting Started}
   %\VignetteEngine{quarto::html}
@@ -13,8 +12,8 @@ vignette: >
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>"
+    collapse = TRUE,
+    comment = "#>"
 )
 ```
 
@@ -28,7 +27,7 @@ You can install the `refinebioc` package from Bioconductor using the following c
 
 ```{r eval=FALSE}
 if (!requireNamespace("BiocManager", quietly = TRUE)) {
-  install.packages("BiocManager")
+    install.packages("BiocManager")
 }
 BiocManager::install("seandavi/refinebioc")
 ```
@@ -45,7 +44,7 @@ library(refinebioc)
 
 The `experiment_listing` function can be used to list all available experiments.
 
-```{r cache=TRUE, eval=FALSE}
+```{r eval=FALSE}
 experiments <- get_experiment_catalog()
 ```
 
@@ -64,8 +63,8 @@ The `experiments` variable contains a data frame. Standard dplyr functions can b
 ```{r}
 library(dplyr)
 experiments %>%
-  dplyr::filter(grepl("GSE1133", accession_code)) %>%
-  dplyr::select(accession_code, title)
+    dplyr::filter(grepl("GSE1133", accession_code)) %>%
+    dplyr::select(accession_code, title)
 ```
 
 ## Loading an experiment
