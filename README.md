@@ -34,8 +34,9 @@ RefineBio has a large number of experiments available. You can get a
 list of all of them with:
 
 ``` r
-library(RefineBio)
-experiments <- experiment_listing()
+library(refinebioc)
+system.time(experiments <- refinebioc::get_experiment_catalog())
+# Getting experiment metadata...  ■                               0% | ETA:  3m
 head(experiments)
 ```
 
@@ -85,6 +86,7 @@ processed together. A “dataset” is a collection of experiments that you
 want to analyze together. You can create a dataset with:
 
 ``` r
+# this doesn't seem to work anymore
 dset <- rb_dataset_request("GSE1133")
 ```
 
@@ -94,6 +96,7 @@ process the data. To get to actual data loaded into R, you need to do
 the following:
 
 ``` r
+# this also doesn't seem to work anymore
 rb_dataset_ensure_started(dset)
 rb_wait_for_dataset(dset)
 rb_dataset_download(dset)
