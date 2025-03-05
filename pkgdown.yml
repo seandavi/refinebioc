@@ -3,7 +3,7 @@ pkgdown: 2.1.1
 pkgdown_sha: ~
 articles:
   refinebioc: refinebioc.html
-last_built: 2025-02-21T04:05Z
+last_built: 2025-03-04T23:34Z
 urls:
   reference: https://seandavi.github.io/refinebioc/reference
   article: https://seandavi.github.io/refinebioc/articles
